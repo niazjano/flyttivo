@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flyttivo – Flytt & Städning i Skåne
 
-## Getting Started
+Modern, premium website for Flyttivo - a moving and cleaning company in Skåne, Sweden.
 
-First, run the development server:
+## 🚀 Deployment to GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages.
+
+### Setup Instructions
+
+1. **Push your code to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Initial commit - Flyttivo website"
+   git remote add origin https://github.com/YOUR_USERNAME/flyttivo.git
+   git push -u origin main
+   ```
+
+2. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+   - Save the settings
+
+3. **Configure basePath (if needed):**
+   - If your repository name is NOT "flyttivo", update `next.config.ts`:
+   ```typescript
+   basePath: '/your-repo-name',
+   trailingSlash: true,
+   ```
+
+4. **Deploy:**
+   - The GitHub Actions workflow will automatically build and deploy on every push to `main`
+   - Check the **Actions** tab in your repository to see the deployment progress
+   - Your site will be available at: `https://YOUR_USERNAME.github.io/flyttivo/`
+
+### Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+The static files will be in the `out/` directory.
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/` - Next.js App Router pages
+- `src/components/` - React components (Header, Footer, Logo)
+- `public/` - Static assets (images, videos, logos)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Tech Stack
 
-## Deploy on Vercel
+- **Next.js 16** - React framework
+- **Tailwind CSS 4** - Styling
+- **TypeScript** - Type safety
+- **GitHub Pages** - Hosting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The site uses static export for GitHub Pages compatibility
+- Images are unoptimized for static export
+- Video files should be optimized for web (consider converting to MP4)
