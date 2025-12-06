@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -80,29 +82,13 @@ export default function HomePage() {
           {/* Premium CTA Buttons */}
           <div className="mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* Primary CTA - Flyttivo Blue */}
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium text-white transition-all duration-200 hover:scale-105"
-              style={{
-                backgroundColor: "#1E5F99",
-                boxShadow: "0 8px 30px rgba(30, 95, 153, 0.22)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#174A77";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#1E5F99";
-              }}
-            >
+            <Button variant="primary" href="/kontakt">
               Få gratis offert
-            </Link>
+            </Button>
             {/* Secondary CTA - Transparent White Border */}
-            <a
-              href="tel:0447853002"
-              className="inline-flex items-center justify-center rounded-full border border-white/80 px-7 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-white/10"
-            >
+            <Button variant="secondary" href="tel:0447853002">
               Ring oss: 044–785 3002
-            </a>
+            </Button>
           </div>
 
           {/* Premium Frosted Glass Trust Bar */}
@@ -144,10 +130,7 @@ export default function HomePage() {
           {/* Service Cards Grid */}
           <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {/* Flytt Service Card */}
-            <Link
-              href="/flyttfirma"
-              className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md"
-            >
+            <Card href="/flyttfirma">
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
@@ -191,13 +174,10 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </Link>
+            </Card>
 
             {/* Städning Service Card */}
-            <Link
-              href="/stadning"
-              className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md"
-            >
+            <Card href="/stadning">
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
@@ -240,10 +220,10 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </Link>
+            </Card>
 
             {/* Trygg Partner Card */}
-            <div className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md">
+            <Card>
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
@@ -282,13 +262,120 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Main Content - Premium Spacing py-20 */}
       <div className="mx-auto w-full max-w-6xl px-4 py-20 md:px-6">
+
+        {/* Games Section - Premium Card Design */}
+        <section className="mb-20 border-t border-slate-200 pt-20">
+          <div className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-[#1E5F99] mb-2">
+              SPEL & UNDERHÅLLNING
+            </div>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Testa våra mini-spel
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Packing Game Card */}
+            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#1E5F99]/8 via-[#E6F0FB]/40 to-[#1E5F99]/5 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#1E5F99]/30">
+            {/* Decorative background pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#1E5F99] rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#E6F0FB] rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#1E5F99]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#1E5F99]">
+                  <span>🎮</span>
+                  <span>MINI-SPEL</span>
+                </div>
+                <h2 className="mb-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                  Packa Flyttivos kartong
+                </h2>
+                <p className="mb-5 text-base leading-relaxed text-slate-600 max-w-2xl">
+                  Testa vårt roliga packningsspel! Dra in sakerna i flyttlådan och
+                  försök få plats med allt utan att det krockar. Ett lugnt litet spel
+                  som visar hur viktigt smart packning är – precis som i en riktig Flyttivo-flytt.
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/spel"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E5F99] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-[#174A77] hover:scale-105 shadow-[0_8px_30px_rgba(30,95,153,0.22)]"
+                  >
+                    <span>Spela nu</span>
+                    <span>→</span>
+                  </Link>
+                  <div className="flex items-center gap-2 text-xs text-slate-500">
+                    <span>📦</span>
+                    <span>4 nivåer</span>
+                    <span>•</span>
+                    <span>Gratis att spela</span>
+                  </div>
+                </div>
+              </div>
+              <div className="hidden md:flex items-center justify-center">
+                <div className="relative">
+                  <div className="text-7xl animate-pulse">📦</div>
+                  <div className="absolute inset-0 text-7xl opacity-20 blur-xl">📦</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            {/* Cleaning Game Card */}
+            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#22C55E]/8 via-[#E6F0FB]/40 to-[#22C55E]/5 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#22C55E]/30">
+              {/* Decorative background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#22C55E] rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#E6F0FB] rounded-full blur-3xl"></div>
+              </div>
+              
+              <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                <div>
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#22C55E]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#22C55E]">
+                    <span>✨</span>
+                    <span>STÄD-SPEL</span>
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+                    Städa Rummet
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-slate-600">
+                    Välj rätt städon och klicka på smutsen för att städa rummet. Ett roligt
+                    spel som visar hur viktigt det är att använda rätt verktyg.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link
+                      href="/stad-spel"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#22C55E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-[#16A34A] hover:scale-105 shadow-[0_8px_30px_rgba(34,197,94,0.22)]"
+                    >
+                      <span>Spela nu</span>
+                      <span>→</span>
+                    </Link>
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <span>🧹</span>
+                      <span>4 rum</span>
+                      <span>•</span>
+                      <span>Gratis att spela</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:flex items-center justify-center">
+                  <div className="relative">
+                    <div className="text-7xl animate-pulse">🧹</div>
+                    <div className="absolute inset-0 text-7xl opacity-20 blur-xl">🧹</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Areas We Work In - Premium Pill Design */}
         <section className="mb-20 border-t border-slate-200 pt-20">
@@ -455,20 +542,22 @@ export default function HomePage() {
                 {/* CTA Buttons */}
                 <div className="space-y-3 pt-2">
                   {/* Primary Button */}
-                  <button
+                  <Button
                     type="submit"
-                    className="inline-flex w-full items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-sky-700 sm:text-base"
+                    variant="primary"
+                    className="w-full sm:text-base"
                   >
                     Skicka förfrågan
-                  </button>
+                  </Button>
 
                   {/* Secondary Phone Button */}
-                  <a
+                  <Button
+                    variant="ghost"
                     href="tel:0447853002"
-                    className="inline-flex w-full items-center justify-center rounded-full border border-sky-300 px-6 py-3 text-sm font-medium text-sky-700 transition-all hover:bg-sky-50 sm:text-base"
+                    className="w-full sm:text-base"
                   >
                     Ring oss: 044–785 3002
-                  </a>
+                  </Button>
                 </div>
               </form>
             </div>

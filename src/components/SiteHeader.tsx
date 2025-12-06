@@ -12,6 +12,8 @@ const navLinks = [
   { href: "/priser", label: "Priser" },
   { href: "/om-oss", label: "Om oss" },
   { href: "/kontakt", label: "Kontakt" },
+  { href: "/spel", label: "Flytt-spel", icon: "📦", isGame: true },
+  { href: "/stad-spel", label: "Städ-spel", icon: "🧹", isGame: true },
 ];
 
 const flyttServices = [
@@ -255,6 +257,26 @@ export function SiteHeader() {
                 );
               }
 
+              // Special styling for game link
+              if (link.isGame) {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`rounded-full px-3 py-1.5 transition-all ${
+                      active
+                        ? "bg-[#1E5F99] text-white shadow-sm"
+                        : "bg-gradient-to-r from-[#1E5F99]/10 to-[#E6F0FB]/50 hover:from-[#1E5F99]/20 hover:to-[#E6F0FB]/70 text-[#1E5F99] font-medium border border-[#1E5F99]/20"
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-1.5 text-sm">
+                      {link.icon && <span>{link.icon}</span>}
+                      <span>{link.label}</span>
+                    </span>
+                  </Link>
+                );
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -403,6 +425,27 @@ export function SiteHeader() {
                       </div>
                     )}
                   </div>
+                );
+              }
+
+              // Special styling for game link in mobile
+              if (link.isGame) {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setShowMobileMenu(false)}
+                    className={`block rounded-lg px-3 py-2.5 text-sm font-medium ${
+                      active
+                        ? "bg-[#1E5F99] text-white shadow-sm"
+                        : "bg-gradient-to-r from-[#1E5F99]/10 to-[#E6F0FB]/50 text-[#1E5F99] border border-[#1E5F99]/20"
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      {link.icon && <span className="text-base">{link.icon}</span>}
+                      <span>{link.label}</span>
+                    </span>
+                  </Link>
                 );
               }
 

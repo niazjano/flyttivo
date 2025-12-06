@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Veckostädning i Skåne | Flyttivo",
@@ -10,9 +8,7 @@ export const metadata: Metadata = {
 
 export default function VeckostadningPage() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-      <SiteHeader />
-      <section className="mx-auto max-w-6xl px-4 py-12">
+    <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
@@ -196,8 +192,6 @@ export default function VeckostadningPage() {
           </section>
         </div>
       </section>
-      <SiteFooter />
-    </main>
   );
 }
 
