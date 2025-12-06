@@ -1,4 +1,4 @@
-import { Room, Mess } from "./types";
+import { Room, Mess, CleaningTool } from "./types";
 
 /**
  * Create a mess with multi-pass cleaning support

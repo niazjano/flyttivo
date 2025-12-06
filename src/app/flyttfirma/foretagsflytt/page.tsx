@@ -1,10 +1,3 @@
-
-export const metadata: Metadata = {
-  title: "Företagsflytt & kontorsflytt i Skåne | Flyttivo",
-  description:
-    "Professionell företagsflytt och kontorsflytt i Skåne. Minimal driftstopp, planerad flytt och säker hantering av kontorsinventarier. Flyttivo hjälper ditt företag.",
-};
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

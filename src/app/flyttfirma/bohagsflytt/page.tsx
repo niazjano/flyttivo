@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Bohagsflytt i Skåne – trygg & prisvärd flytthjälp | Flyttivo",
   description:
     "Professionell bohagsflytt i Skåne med Flyttivo. Trygg flytthjälp för lägenheter och villor i Kristianstad, Åhus, Hässleholm och hela Skåne. RUT-avdrag tillgängligt.",

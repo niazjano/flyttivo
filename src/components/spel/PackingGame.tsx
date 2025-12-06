@@ -257,7 +257,7 @@ export function PackingGame() {
     }
   };
 
-  const draggingItem = draggingItemId ? items.find((i) => i.id === draggingItemId) : null;
+  const draggingItem = draggingItemId ? items.find((i) => i.id === draggingItemId) ?? null : null;
 
   return (
     <div className="space-y-6">
