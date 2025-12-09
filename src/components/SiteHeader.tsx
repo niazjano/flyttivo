@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -63,19 +64,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl px-4 py-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 transition-colors hover:opacity-90">
-            <span 
-              className="text-lg font-semibold tracking-tight transition-colors"
-              style={{ color: "#1E5F99" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#174A77";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#1E5F99";
-              }}
-            >
-              Flyttivo
-            </span>
+          <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
+            <Image
+              src="/logo/flyttivo-logo.png"
+              alt="Flyttivo - Flytt & städ i Skåne"
+              width={120}
+              height={40}
+              className="h-8 w-auto md:h-10"
+              priority
+            />
             <span className="hidden text-sm text-slate-600 lg:inline">
               Flytt & städ i Skåne
             </span>
