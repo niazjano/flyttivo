@@ -52,20 +52,6 @@ export default function HomePage() {
 
         {/* Hero Content - Premium Typography & Layout */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 text-center sm:py-24 lg:py-28">
-          {/* Trust Badge Label */}
-          <div className="mb-6">
-            <span
-              className="inline-block rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(8px)",
-                color: "#FFD266",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-              }}
-            >
-              ★★★★★ 5,0 i kundomdömen
-            </span>
-          </div>
 
           {/* Main Headline - Premium Typography 3xl→5xl */}
           <h1 className="mb-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
