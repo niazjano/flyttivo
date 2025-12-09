@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   title: "Flyttivo – Flyttfirma & Städning i Skåne",
   description:
     "Flyttivo är en lokal flyttfirma och städfirma i Skåne med fokus på trygghet, professionalism och personlig service.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
