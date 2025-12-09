@@ -219,30 +219,18 @@ export function SiteHeader() {
                               </div>
                               <div className="grid grid-cols-2 gap-2">
                                 {cities.map((city) => (
-                                  <div key={city.slug} className="space-y-1">
-                                    <Link
-                                      href={`/flyttfirma-${city.slug}`}
-                                      className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors ${
-                                        pathname === `/flyttfirma-${city.slug}`
-                                          ? "bg-sky-50 text-sky-700 font-medium"
-                                          : "text-slate-700 hover:bg-slate-50"
-                                      }`}
-                                    >
-                                      <span className="text-xs">🚚</span>
-                                      <span>{city.name}</span>
-                                    </Link>
-                                    <Link
-                                      href={`/stadning-${city.slug}`}
-                                      className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-colors ${
-                                        pathname === `/stadning-${city.slug}`
-                                          ? "bg-sky-50 text-sky-700 font-medium"
-                                          : "text-slate-700 hover:bg-slate-50"
-                                      }`}
-                                    >
-                                      <span className="text-xs">✨</span>
-                                      <span>{city.name}</span>
-                                    </Link>
-                                  </div>
+                                  <Link
+                                    key={city.slug}
+                                    href={`/flyttfirma-${city.slug}`}
+                                    className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors ${
+                                      pathname === `/flyttfirma-${city.slug}` || pathname === `/stadning-${city.slug}`
+                                        ? "bg-sky-50 text-sky-700 font-medium"
+                                        : "text-slate-700 hover:bg-slate-50"
+                                    }`}
+                                  >
+                                    <span className="text-xs">📍</span>
+                                    <span>{city.name}</span>
+                                  </Link>
                                 ))}
                               </div>
                             </div>
@@ -394,30 +382,18 @@ export function SiteHeader() {
                           Våra städer
                         </div>
                         {cities.map((city) => (
-                          <div key={city.slug} className="space-y-1">
-                            <Link
-                              href={`/flyttfirma-${city.slug}`}
-                              onClick={() => setShowMobileMenu(false)}
-                              className={`block rounded-lg px-3 py-2 text-sm ${
-                                pathname === `/flyttfirma-${city.slug}`
-                                  ? "bg-sky-50 text-sky-700 font-medium"
-                                  : "text-slate-600"
-                              }`}
-                            >
-                              🚚 {city.name}
-                            </Link>
-                            <Link
-                              href={`/stadning-${city.slug}`}
-                              onClick={() => setShowMobileMenu(false)}
-                              className={`block rounded-lg px-3 py-2 text-sm ${
-                                pathname === `/stadning-${city.slug}`
-                                  ? "bg-sky-50 text-sky-700 font-medium"
-                                  : "text-slate-600"
-                              }`}
-                            >
-                              ✨ {city.name}
-                            </Link>
-                          </div>
+                          <Link
+                            key={city.slug}
+                            href={`/flyttfirma-${city.slug}`}
+                            onClick={() => setShowMobileMenu(false)}
+                            className={`block rounded-lg px-3 py-2 text-sm ${
+                              pathname === `/flyttfirma-${city.slug}` || pathname === `/stadning-${city.slug}`
+                                ? "bg-sky-50 text-sky-700 font-medium"
+                                : "text-slate-600"
+                            }`}
+                          >
+                            📍 {city.name}
+                          </Link>
                         ))}
                       </div>
                     )}
