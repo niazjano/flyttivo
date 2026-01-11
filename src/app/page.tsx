@@ -26,19 +26,23 @@ export default function HomePage() {
         <video
           ref={videoRef}
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/hero-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             objectPosition: "center center",
           }}
         >
-          <source src="/videos/flyttivo-hero.mov" type="video/quicktime" />
-          <source src="/videos/flyttivo-hero.mov" type="video/mp4" />
-          {/* Fallback gradient if video doesn't load */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F23] via-[#0E3A5D] to-[#1C1F23]" />
+          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+          <img
+            src="/hero-fallback.jpg"
+            alt="Flyttivo – pålitlig flytt- och städfirma i Skåne"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </video>
 
         {/* Premium Gradient Overlay - Soft from bottom to top */}
