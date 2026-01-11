@@ -55,7 +55,7 @@ export default function HomePage() {
 
           {/* Main Headline - Premium Typography 3xl→5xl */}
           <h1 className="mb-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Trusted flytt- & städfirma i Skåne
+            Pålitlig flytt- och städfirma i Skåne
           </h1>
 
           {/* Subheadline - Softer Text Color, max-w-xl */}
@@ -209,7 +209,7 @@ export default function HomePage() {
             </Card>
 
             {/* Trygg Partner Card */}
-            <Card>
+            <Card href="/trygg-partner">
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
@@ -245,6 +245,11 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed text-slate-600">
                     Vi dyker upp i tid, håller vad vi lovar och kommunicerar tydligt
                     genom hela uppdraget.
+                  </p>
+
+                  {/* Link Text */}
+                  <p className="mt-3 text-[13px] font-medium text-sky-700 transition-colors group-hover:text-sky-800">
+                    Läs mer om vår trygghet →
                   </p>
                 </div>
               </div>
@@ -375,21 +380,23 @@ export default function HomePage() {
           </p>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {[
-              "Kristianstad",
-              "Åhus",
-              "Hässleholm",
-              "Östra Göinge",
-              "Broby",
-              "Hanaskog",
-              "Knislinge",
-              "Bromölla",
+              { name: "Kristianstad", slug: "kristianstad" },
+              { name: "Åhus", slug: "ahus" },
+              { name: "Hässleholm", slug: "hassleholm" },
+              { name: "Östra Göinge", slug: "ostra-goinge" },
+              { name: "Broby", slug: "broby" },
+              { name: "Hanaskog", slug: "hanaskog" },
+              { name: "Knislinge", slug: "knislinge" },
+              { name: "Bromölla", slug: "bromolla" },
             ].map((city) => (
-              <div
-                key={city}
-                className="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-center text-xs font-medium text-[#1C1F23] transition-colors duration-200 hover:bg-slate-100"
+              <Link
+                key={city.slug}
+                href={`/stad/${city.slug}`}
+                className="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-center text-xs font-medium text-[#1C1F23] transition-all duration-200 hover:bg-slate-100 hover:border-slate-300 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 cursor-pointer"
+                aria-label={`Flytt & städ i ${city.name}`}
               >
-                {city}
-              </div>
+                {city.name}
+              </Link>
             ))}
           </div>
         </section>

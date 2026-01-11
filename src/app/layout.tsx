@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   description:
     "Flyttivo är en lokal flyttfirma och städfirma i Skåne med fokus på trygghet, professionalism och personlig service.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/logo/flyttivo-logo.png",
+    apple: "/logo/flyttivo-logo.png",
   },
 };
 

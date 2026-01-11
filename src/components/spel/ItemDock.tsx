@@ -27,50 +27,91 @@ export function ItemDock({
   const unplacedItems = items.filter((item) => !item.placed);
 
   return (
-    <div className="space-y-4">
-      <div className="text-sm font-medium text-slate-700 mb-2">
+    <div className="relative bg-white rounded-2xl border border-slate-200 shadow-sm p-4">
+      {/* Header */}
+      <p className="text-xs font-medium text-slate-500 mb-3 uppercase tracking-[0.18em]">
         Dra in sakerna här
-      </div>
-      {/* Desktop: vertical stack, Mobile: horizontal scroll */}
-      <div className="md:space-y-4 md:max-h-[500px] md:overflow-y-auto md:pr-2">
-        {unplacedItems.length === 0 ? (
-          <div className="text-sm text-slate-500 italic">
-            Alla saker är packade!
-          </div>
-        ) : (
-          <div className="flex md:flex-col gap-4 overflow-x-auto pb-2 md:overflow-x-visible md:pb-0">
-            {unplacedItems.map((item) => (
-              <div
-                key={item.id}
-                className="relative flex-shrink-0 p-3 bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
-              >
-                {/* Rotate button - top right */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onRotate(item.id);
-                  }}
-                  className="absolute top-2 right-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 hover:bg-sky-50 text-slate-600 hover:text-[#1E5F99] shadow-sm transition-all z-10"
-                  aria-label="Rotera"
-                  title="Rotera"
+      </p>
+
+      {/* Desktop: Vertical scrollable container */}
+      {/* Mobile: Horizontal scrollable container */}
+      {unplacedItems.length === 0 ? (
+        <div className="text-sm text-slate-500 italic py-8 text-center">
+          Alla saker är packade!
+        </div>
+      ) : (
+        <>
+          {/* Desktop: Vertical scroll */}
+          <div className="hidden md:block">
+            <div className="space-y-3 max-h-[260px] overflow-y-auto pr-2 custom-scrollbar">
+              {unplacedItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative flex-shrink-0 p-3 bg-slate-50 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <span className="text-sm">↻</span>
-                </button>
-                <ItemPiece
-                  item={item}
-                  cellSize={cellSize}
-                  onDragStart={onDragStart}
-                  onDragEnd={onDragEnd}
-                  onRotate={onRotate}
-                  isDragging={draggingItemId === item.id}
-                  dragPosition={draggingItemId === item.id ? dragPosition : null}
-                  gridOccupancy={gridOccupancy}
-                />
-              </div>
-            ))}
+                  {/* Rotate button - top right */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onRotate(item.id);
+                    }}
+                    className="absolute top-2 right-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 hover:bg-sky-50 text-slate-600 hover:text-[#1E5F99] shadow-sm transition-all z-10"
+                    aria-label="Rotera"
+                    title="Rotera"
+                  >
+                    <span className="text-sm">↻</span>
+                  </button>
+                  <ItemPiece
+                    item={item}
+                    cellSize={cellSize}
+                    onDragStart={onDragStart}
+                    onDragEnd={onDragEnd}
+                    onRotate={onRotate}
+                    isDragging={draggingItemId === item.id}
+                    dragPosition={draggingItemId === item.id ? dragPosition : null}
+                    gridOccupancy={gridOccupancy}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        )}
-      </div>
+
+          {/* Mobile: Horizontal scroll */}
+          <div className="md:hidden">
+            <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 snap-x snap-mandatory">
+              {unplacedItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative flex-shrink-0 w-[140px] p-3 bg-slate-50 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow snap-start"
+                >
+                  {/* Rotate button - top right */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onRotate(item.id);
+                    }}
+                    className="absolute top-2 right-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/90 hover:bg-sky-50 text-slate-600 hover:text-[#1E5F99] shadow-sm transition-all z-10"
+                    aria-label="Rotera"
+                    title="Rotera"
+                  >
+                    <span className="text-sm">↻</span>
+                  </button>
+                  <ItemPiece
+                    item={item}
+                    cellSize={cellSize}
+                    onDragStart={onDragStart}
+                    onDragEnd={onDragEnd}
+                    onRotate={onRotate}
+                    isDragging={draggingItemId === item.id}
+                    dragPosition={draggingItemId === item.id ? dragPosition : null}
+                    gridOccupancy={gridOccupancy}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
