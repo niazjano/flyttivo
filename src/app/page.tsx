@@ -65,15 +65,8 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <img
-          src="/videos/banner.gif"
-          alt="Flyttivo – flytt & städ i Skåne"
-          className="h-56 w-full object-cover sm:h-72 lg:h-80"
-        />
-      </div>
       {/* Premium Hero Section - Full Width Edge-to-Edge */}
-      <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* World-Class Video Background - Full Width */}
         <video
           ref={videoRef}
@@ -82,29 +75,23 @@ export default function HomePage() {
           loop
           playsInline
           preload="metadata"
-          poster="/hero-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
+          poster="/videos/banner.gif"
+          className="absolute inset-0 h-full w-full object-cover"
           style={{
             objectPosition: "center center",
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/videos/flyttivo-hero.mov" type="video/quicktime" />
           {/* Fallback image if video doesn't load */}
           <img
-            src="/hero-fallback.jpg"
+            src="/videos/banner.gif"
             alt="Flyttivo – pålitlig flytt- och städfirma i Skåne"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </video>
 
-        {/* Premium Gradient Overlay - Soft from bottom to top */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.25) 100%)",
-          }}
-        />
+        {/* Dark Overlay for Readability */}
+        <div className="absolute inset-0 bg-black/40" />
 
         {/* Hero Content - Premium Typography & Layout */}
         <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 text-center sm:py-24 lg:py-28">
