@@ -6,7 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
-const WEB_APP_URL = "PASTE_REAL_WEB_APP_URL_HERE";
+const WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxAHyoqdMy_w_qLmv8NAyhylBzwSZqbhKV72XWu1MVaa8WmRaM5p5_7Q0PMWpZNTw0/exec";
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,6 +29,15 @@ export default function HomePage() {
       });
     }
   }, []);
+
+  function resetForm() {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setService("");
+    setCity("");
+    setMessage("");
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -56,6 +66,7 @@ export default function HomePage() {
       if (!res.ok) throw new Error("Request failed");
 
       setSuccess(true);
+      resetForm();
     } catch (err) {
       setError(true);
     } finally {
@@ -596,12 +607,12 @@ export default function HomePage() {
                 {/* Success/Error Messages */}
                 {success && (
                   <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
-                    Thank you! We will contact you shortly.
+                    Tack! Vi återkommer till dig inom kort.
                   </div>
                 )}
                 {error && (
                   <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                    Something went wrong. Please try again or call us at 044–785 3002.
+                    Något gick fel. Försök igen eller ring oss på 044-785 3002.
                   </div>
                 )}
 
