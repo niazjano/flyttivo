@@ -2,12 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
+const WEB_APP_URL = "PASTE_REAL_WEB_APP_URL_HERE";
+
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [service, setService] = useState("");
+  const [city, setCity] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     // Ensure video plays smoothly on all devices
@@ -18,8 +29,49 @@ export default function HomePage() {
     }
   }, []);
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+    setSuccess(false);
+
+    const payload = {
+      name,
+      phone,
+      email,
+      service,
+      city,
+      message
+    };
+
+    try {
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setSuccess(true);
+    } catch (err) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <>
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <img
+          src="/videos/banner.gif"
+          alt="Flyttivo – flytt & städ i Skåne"
+          className="h-56 w-full object-cover sm:h-72 lg:h-80"
+        />
+      </div>
       {/* Premium Hero Section - Full Width Edge-to-Edge */}
       <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
         {/* World-Class Video Background - Full Width */}
@@ -422,7 +474,7 @@ export default function HomePage() {
               </div>
 
               {/* Contact Form */}
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 {/* First Row - Two Columns on Desktop */}
                 <div className="grid gap-6 md:grid-cols-2">
                   {/* Namn */}
@@ -437,6 +489,9 @@ export default function HomePage() {
                       type="text"
                       id="namn"
                       name="namn"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="Ditt namn"
                     />
@@ -454,6 +509,9 @@ export default function HomePage() {
                       type="tel"
                       id="telefon"
                       name="telefon"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="070-123 45 67"
                     />
@@ -474,6 +532,9 @@ export default function HomePage() {
                       type="email"
                       id="epost"
                       name="epost"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="din@epost.se"
                     />
@@ -490,6 +551,9 @@ export default function HomePage() {
                     <select
                       id="tjanst"
                       name="tjanst"
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                      required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                     >
                       <option value="">Välj tjänst</option>
@@ -514,6 +578,9 @@ export default function HomePage() {
                     type="text"
                     id="stad"
                     name="stad"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    required
                     className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                     placeholder="t.ex. Kristianstad, Åhus, Hässleholm"
                   />
@@ -531,10 +598,25 @@ export default function HomePage() {
                     id="meddelande"
                     name="meddelande"
                     rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
                     className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40 resize-none"
                     placeholder="Beskriv ditt behov här..."
                   />
                 </div>
+
+                {/* Success/Error Messages */}
+                {success && (
+                  <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
+                    Thank you! We will contact you shortly.
+                  </div>
+                )}
+                {error && (
+                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                    Something went wrong. Please try again or call us at 044–785 3002.
+                  </div>
+                )}
 
                 {/* CTA Buttons */}
                 <div className="space-y-3 pt-2">
@@ -543,8 +625,9 @@ export default function HomePage() {
                     type="submit"
                     variant="primary"
                     className="w-full sm:text-base"
+                    disabled={loading}
                   >
-                    Skicka förfrågan
+                    {loading ? "Sending…" : "Skicka förfrågan"}
                   </Button>
 
                   {/* Secondary Phone Button */}
