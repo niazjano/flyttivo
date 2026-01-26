@@ -97,19 +97,19 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 text-center sm:py-24 lg:py-28">
 
           {/* Main Headline - Premium Typography 3xl→5xl */}
-          <h1 className="mb-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h1 className="hero-fade-up mb-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
             Pålitlig flytt- och städfirma i Skåne
           </h1>
 
           {/* Subheadline - Softer Text Color, max-w-xl */}
-          <p className="mx-auto mb-10 max-w-xl text-sm leading-relaxed text-slate-100/90 sm:text-base md:text-lg">
+          <p className="hero-fade-up hero-fade-up-delay-1 mx-auto mb-10 max-w-xl text-sm leading-relaxed text-slate-100/90 sm:text-base md:text-lg">
             Smidigare flytt och renare hem i Kristianstad, Åhus, Hässleholm,
             Östra Göinge och hela norra & östra Skåne – med 50% RUT-avdrag på
             arbetskostnaden.
           </p>
 
           {/* Premium CTA Buttons */}
-          <div className="mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="hero-fade-up hero-fade-up-delay-2 mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* Primary CTA - Flyttivo Blue */}
             <Button variant="primary" href="/kontakt">
               Få gratis offert
@@ -121,7 +121,7 @@ export default function HomePage() {
           </div>
 
           {/* Premium Frosted Glass Trust Bar */}
-          <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[12px] text-white backdrop-blur-md sm:gap-4">
+          <div className="hero-fade-up hero-fade-up-delay-3 hover-lift mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[12px] text-white backdrop-blur-md sm:gap-4">
             <span className="flex items-center gap-2">
               <span className="text-xs opacity-80">✓</span>
               <span>Försäkrad flyttfirma</span>
@@ -143,7 +143,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section - Modern Premium Design */}
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="reveal bg-slate-50 py-16 sm:py-20" data-reveal data-reveal-id="services">
         <div className="mx-auto max-w-6xl px-4 space-y-8 md:px-6">
           {/* Section Header */}
           <div className="space-y-3">
@@ -305,7 +305,7 @@ export default function HomePage() {
       <div className="mx-auto w-full max-w-6xl px-4 py-20 md:px-6">
 
         {/* Games Section - Premium Card Design */}
-        <section className="mb-20 border-t border-slate-200 pt-20">
+        <section className="reveal mb-20 border-t border-slate-200 pt-20" data-reveal data-reveal-id="games">
           <div className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-wider text-[#1E5F99] mb-2">
               SPEL & UNDERHÅLLNING
@@ -317,7 +317,7 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {/* Packing Game Card */}
-            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#1E5F99]/8 via-[#E6F0FB]/40 to-[#1E5F99]/5 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#1E5F99]/30">
+            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#1E5F99]/8 via-[#E6F0FB]/40 to-[#1E5F99]/5 p-8 shadow-sm transition-all duration-300 md:hover:shadow-md md:hover:border-[#1E5F99]/30 hover-lift">
             {/* Decorative background pattern */}
             <div className="absolute inset-0 opacity-5">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#1E5F99] rounded-full blur-3xl"></div>
@@ -364,7 +364,7 @@ export default function HomePage() {
           </div>
 
             {/* Cleaning Game Card */}
-            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#22C55E]/8 via-[#E6F0FB]/40 to-[#22C55E]/5 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#22C55E]/30">
+            <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#22C55E]/8 via-[#E6F0FB]/40 to-[#22C55E]/5 p-8 shadow-sm transition-all duration-300 md:hover:shadow-md md:hover:border-[#22C55E]/30 hover-lift">
               {/* Decorative background pattern */}
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#22C55E] rounded-full blur-3xl"></div>
@@ -412,7 +412,7 @@ export default function HomePage() {
         </section>
 
         {/* Areas We Work In - Premium Pill Design */}
-        <section className="mb-20 border-t border-slate-200 pt-20">
+        <section className="reveal mb-20 border-t border-slate-200 pt-20" data-reveal data-reveal-id="areas">
           <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#1C1F23] sm:text-3xl">
             Vi arbetar i hela Skåne
           </h2>
@@ -445,7 +445,7 @@ export default function HomePage() {
         </section>
 
         {/* Modern Contact Form Section */}
-        <section className="py-20 bg-slate-50">
+        <section className="reveal py-20 bg-slate-50" data-reveal data-reveal-id="contact">
           <div className="mx-auto max-w-5xl px-4">
             {/* Form Card */}
             <div className="space-y-8 rounded-3xl border border-slate-200/60 bg-white p-8 shadow-md sm:p-10">

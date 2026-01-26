@@ -12,7 +12,7 @@ export default function TryggPartnerPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-20 md:px-6">
       <div className="space-y-10">
-        <header className="space-y-4">
+        <header className="reveal space-y-4" data-reveal data-reveal-id="trygg-hero">
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
             Trygg partner för flytt & städ i Skåne
           </h1>
@@ -34,11 +34,11 @@ export default function TryggPartnerPage() {
           </div>
         </header>
 
-        <section className="space-y-4">
+        <section className="reveal space-y-4" data-reveal data-reveal-id="trygg-why">
           <h2 className="text-2xl font-semibold text-slate-900">
             Därför är Flyttivo en trygg partner
           </h2>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <ul className="space-y-4 text-base text-slate-600">
               <li className="flex items-start">
                 <span className="mr-3 text-xl text-sky-600">✓</span>
@@ -106,7 +106,7 @@ export default function TryggPartnerPage() {
           </div>
         </section>
 
-        <section className="space-y-4">
+        <section className="reveal space-y-4" data-reveal data-reveal-id="trygg-process">
           <h2 className="text-2xl font-semibold text-slate-900">
             Så arbetar vi
           </h2>
@@ -115,7 +115,7 @@ export default function TryggPartnerPage() {
             uppdrag blir rätt från början till slut.
           </p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-lg font-semibold text-sky-700">
                 1
               </div>
@@ -127,7 +127,7 @@ export default function TryggPartnerPage() {
                 tydligt prisförslag – oftast samma dag.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-lg font-semibold text-sky-700">
                 2
               </div>
@@ -139,7 +139,7 @@ export default function TryggPartnerPage() {
                 dina behov och din tidsplan.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-lg font-semibold text-sky-700">
                 3
               </div>
@@ -151,7 +151,7 @@ export default function TryggPartnerPage() {
                 personal och rätt utrustning.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-lg font-semibold text-sky-700">
                 4
               </div>
@@ -166,7 +166,7 @@ export default function TryggPartnerPage() {
           </div>
         </section>
 
-        <section className="space-y-4">
+        <section className="reveal space-y-4" data-reveal data-reveal-id="trygg-customers">
           <h2 className="text-2xl font-semibold text-slate-900">
             För vilka kunder?
           </h2>
@@ -175,7 +175,7 @@ export default function TryggPartnerPage() {
             Vi hjälper både privatpersoner och företag med flytt och städning.
           </p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 text-2xl">👤</div>
               <h3 className="mb-2 text-base font-semibold text-slate-900">
                 Privatpersoner
@@ -185,7 +185,7 @@ export default function TryggPartnerPage() {
                 hemstädning. RUT-avdrag ingår.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 text-2xl">🏢</div>
               <h3 className="mb-2 text-base font-semibold text-slate-900">
                 Företag
@@ -195,7 +195,7 @@ export default function TryggPartnerPage() {
                 byggstädning med flexibla lösningar.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 text-2xl">👨‍👩‍👧‍👦</div>
               <h3 className="mb-2 text-base font-semibold text-slate-900">
                 Familjer
@@ -205,7 +205,7 @@ export default function TryggPartnerPage() {
                 flytten så smidig som möjligt.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-3 text-2xl">👴</div>
               <h3 className="mb-2 text-base font-semibold text-slate-900">
                 Seniorer
@@ -218,7 +218,7 @@ export default function TryggPartnerPage() {
           </div>
         </section>
 
-        <section className="space-y-4">
+        <section className="reveal space-y-4" data-reveal data-reveal-id="trygg-local">
           <h2 className="text-2xl font-semibold text-slate-900">
             Lokal närvaro i Skåne
           </h2>
@@ -228,7 +228,7 @@ export default function TryggPartnerPage() {
             Hanaskog, Knislinge, Bromölla och närliggande områden. Med lokal
             närvaro kan vi ge dig snabb service och god kännedom om området.
           </p>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="hover-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-sm text-slate-600">
               <strong className="font-semibold text-slate-900">
                 Vi är aktiva i:
@@ -255,7 +255,11 @@ export default function TryggPartnerPage() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-slate-200 bg-gradient-to-br from-sky-50/50 to-white p-8 shadow-sm">
+        <section
+          className="reveal rounded-2xl border border-slate-200 bg-gradient-to-br from-sky-50/50 to-white p-8 shadow-sm"
+          data-reveal
+          data-reveal-id="trygg-cta"
+        >
           <h2 className="mb-4 text-2xl font-semibold text-slate-900">
             Boka din trygga partner
           </h2>

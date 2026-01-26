@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <RevealOnScroll />
       </body>
     </html>
   );

@@ -98,11 +98,11 @@ export function SiteHeader() {
                   >
                     <Link
                       href={link.href}
-                      className={`rounded-full px-3 py-1 transition-colors ${
+                      className={`nav-link rounded-full px-3 py-1 transition-colors ${
                         active ||
                         pathname.includes("flyttfirma-") ||
                         pathname.startsWith("/flyttfirma/")
-                          ? "bg-sky-600 text-white"
+                          ? "nav-link-active bg-sky-600 text-white"
                           : "hover:bg-sky-50 hover:text-sky-700"
                       }`}
                     >
@@ -149,11 +149,11 @@ export function SiteHeader() {
                   >
                     <Link
                       href={link.href}
-                      className={`rounded-full px-3 py-1 transition-colors ${
+                      className={`nav-link rounded-full px-3 py-1 transition-colors ${
                         active ||
                         pathname.includes("stadning-") ||
                         pathname.startsWith("/stadning/")
-                          ? "bg-sky-600 text-white"
+                          ? "nav-link-active bg-sky-600 text-white"
                           : "hover:bg-sky-50 hover:text-sky-700"
                       }`}
                     >
@@ -199,10 +199,10 @@ export function SiteHeader() {
                     onMouseLeave={() => setShowCitiesDropdown(false)}
                   >
                     <button
-                      className={`rounded-full px-3 py-1 transition-colors ${
+                      className={`nav-link rounded-full px-3 py-1 transition-colors ${
                         pathname.includes("flyttfirma-") ||
                         pathname.includes("stadning-")
-                          ? "bg-sky-600 text-white"
+                          ? "nav-link-active bg-sky-600 text-white"
                           : "hover:bg-sky-50 hover:text-sky-700"
                       }`}
                     >
@@ -248,9 +248,9 @@ export function SiteHeader() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`rounded-full px-3 py-1.5 transition-all ${
+                    className={`nav-link rounded-full px-3 py-1.5 transition-all ${
                       active
-                        ? "bg-[#1E5F99] text-white shadow-sm"
+                        ? "nav-link-active bg-[#1E5F99] text-white shadow-sm"
                         : "bg-gradient-to-r from-[#1E5F99]/10 to-[#E6F0FB]/50 hover:from-[#1E5F99]/20 hover:to-[#E6F0FB]/70 text-[#1E5F99] font-medium border border-[#1E5F99]/20"
                     }`}
                   >
@@ -266,9 +266,9 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-full px-3 py-1 transition-colors ${
+                  className={`nav-link rounded-full px-3 py-1 transition-colors ${
                     active
-                      ? "bg-sky-600 text-white"
+                      ? "nav-link-active bg-sky-600 text-white"
                       : "hover:bg-sky-50 hover:text-sky-700"
                   }`}
                 >
@@ -281,7 +281,7 @@ export function SiteHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
-            className="rounded-lg p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
             aria-label="Toggle menu"
           >
             <svg
@@ -304,7 +304,7 @@ export function SiteHeader() {
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <nav className="mt-4 space-y-2 border-t pt-4 lg:hidden">
+          <nav className="mobile-menu-animate mt-4 space-y-2 border-t pt-4 lg:hidden">
             {navLinks.map((link) => {
               const active =
                 link.href === "/"
