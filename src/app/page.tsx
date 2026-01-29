@@ -5,16 +5,13 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-
-const WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbxAHyoqdMy_w_qLmv8NAyhylBzwSZqbhKV72XWu1MVaa8WmRaM5p5_7Q0PMWpZNTw0/exec";
+import { submitOfferForm } from "@/lib/offerForm";
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState("");
   const [city, setCity] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,7 +31,6 @@ export default function HomePage() {
     setName("");
     setPhone("");
     setEmail("");
-    setService("");
     setCity("");
     setMessage("");
   }
@@ -49,22 +45,13 @@ export default function HomePage() {
       name,
       phone,
       email,
-      service,
       city,
-      message
+      message,
+      source: "homepage" as const
     };
 
     try {
-      const res = await fetch(WEB_APP_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) throw new Error("Request failed");
-
+      await submitOfferForm(payload);
       setSuccess(true);
       resetForm();
     } catch (err) {
@@ -472,7 +459,11 @@ export default function HomePage() {
               </div>
 
               {/* Contact Form */}
-              <form className="space-y-5" onSubmit={handleSubmit}>
+              <form
+                id="snabbOffertForm"
+                className="space-y-5"
+                onSubmit={handleSubmit}
+              >
                 {/* First Row - Two Columns on Desktop */}
                 <div className="grid gap-6 md:grid-cols-2">
                   {/* Namn */}
@@ -538,50 +529,25 @@ export default function HomePage() {
                     />
                   </div>
 
-                  {/* Typ av tjänst */}
+                  {/* Stad / område */}
                   <div className="space-y-2">
                     <label
-                      htmlFor="tjanst"
+                      htmlFor="stad"
                       className="text-sm font-medium text-slate-700"
                     >
-                      Typ av tjänst
+                      Stad / område
                     </label>
-                    <select
-                      id="tjanst"
-                      name="tjanst"
-                      value={service}
-                      onChange={(e) => setService(e.target.value)}
+                    <input
+                      type="text"
+                      id="stad"
+                      name="stad"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
                       required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
-                    >
-                      <option value="">Välj tjänst</option>
-                      <option value="flytthjalp">Flytthjälp</option>
-                      <option value="flyttstadning">Flyttstädning</option>
-                      <option value="hemstadning">Hemstädning</option>
-                      <option value="foretagsflytt">Företagsflytt</option>
-                      <option value="annat">Annat</option>
-                    </select>
+                      placeholder="t.ex. Kristianstad, Åhus, Hässleholm"
+                    />
                   </div>
-                </div>
-
-                {/* Stad / område - Full Width */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="stad"
-                    className="text-sm font-medium text-slate-700"
-                  >
-                    Stad / område
-                  </label>
-                  <input
-                    type="text"
-                    id="stad"
-                    name="stad"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    required
-                    className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
-                    placeholder="t.ex. Kristianstad, Åhus, Hässleholm"
-                  />
                 </div>
 
                 {/* Meddelande - Full Width */}
@@ -607,12 +573,13 @@ export default function HomePage() {
                 {/* Success/Error Messages */}
                 {success && (
                   <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
-                    Tack! Vi återkommer till dig inom kort.
+                    Tack! Vi har mottagit din förfrågan och återkommer till dig
+                    inom kort.
                   </div>
                 )}
                 {error && (
                   <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                    Något gick fel. Försök igen eller ring oss på 044-785 3002.
+                    Något gick fel. Försök igen eller ring oss på 044–785 3002.
                   </div>
                 )}
 
@@ -625,7 +592,7 @@ export default function HomePage() {
                     className="w-full sm:text-base"
                     disabled={loading}
                   >
-                    {loading ? "Sending…" : "Skicka förfrågan"}
+                    {loading ? "Skickar..." : "Skicka förfrågan"}
                   </Button>
 
                   {/* Secondary Phone Button */}

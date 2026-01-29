@@ -31,25 +31,30 @@
        }
      })();
 
-     const observer = new IntersectionObserver(
-       (entries) => {
-         entries.forEach((entry) => {
-           if (!entry.isIntersecting) return;
-           const target = entry.target as HTMLElement;
-           target.classList.add("reveal-visible");
-           observer.unobserve(target);
+    if (typeof IntersectionObserver === "undefined") {
+      elements.forEach((el) => el.classList.add("reveal-visible"));
+      return;
+    }
 
-           if (!canStore) return;
-           const key = target.dataset.revealId;
-           if (key) {
-             sessionStorage.setItem(`reveal:${key}`, "1");
-           }
-         });
-       },
-       { threshold: 0.2 }
-     );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = entry.target as HTMLElement;
+          target.classList.add("reveal-visible");
+          observer.unobserve(target);
 
-     elements.forEach((el, index) => {
+          if (!canStore) return;
+          const key = target.dataset.revealId;
+          if (key) {
+            sessionStorage.setItem(`reveal:${key}`, "1");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((el, index) => {
        const key = el.dataset.revealId || `auto-${index}`;
        if (canStore && sessionStorage.getItem(`reveal:${key}`)) {
          el.classList.add("reveal-visible");
@@ -59,7 +64,14 @@
        observer.observe(el);
      });
 
-     return () => observer.disconnect();
+    const fallbackTimer = window.setTimeout(() => {
+      elements.forEach((el) => el.classList.add("reveal-visible"));
+    }, 1200);
+
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      observer.disconnect();
+    };
    }, []);
 
    return null;
