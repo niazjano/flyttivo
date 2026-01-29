@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { submitOfferForm } from "@/lib/offerForm";
+import { useState, type FormEvent } from "react";
+import { submitOfferForm, type OfferPayload } from "@/lib/offerForm";
 
 export default function KontaktPage() {
   const [name, setName] = useState("");
@@ -21,19 +21,19 @@ export default function KontaktPage() {
     setMessage("");
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError(false);
     setSuccess(false);
 
-    const payload = {
+    const payload: OfferPayload = {
       name,
       phone,
       email,
       city,
       message,
-      source: "contact-page" as const
+      source: "contact-page",
     };
 
     try {
@@ -47,7 +47,6 @@ export default function KontaktPage() {
     }
   }
 
-  return (
   return (
     <div className="space-y-8">
       <header className="space-y-3">
