@@ -2,21 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { submitOfferForm } from "@/lib/offerForm";
 
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     // Ensure video plays smoothly on all devices
@@ -26,40 +17,6 @@ export default function HomePage() {
       });
     }
   }, []);
-
-  function resetForm() {
-    setName("");
-    setPhone("");
-    setEmail("");
-    setCity("");
-    setMessage("");
-  }
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setError(false);
-    setSuccess(false);
-
-    const payload = {
-      name,
-      phone,
-      email,
-      city,
-      message,
-      source: "homepage" as const
-    };
-
-    try {
-      await submitOfferForm(payload);
-      setSuccess(true);
-      resetForm();
-    } catch (err) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   return (
     <>
@@ -462,24 +419,22 @@ export default function HomePage() {
               <form
                 id="snabbOffertForm"
                 className="space-y-5"
-                onSubmit={handleSubmit}
+                data-offer-form
               >
                 {/* First Row - Two Columns on Desktop */}
                 <div className="grid gap-6 md:grid-cols-2">
                   {/* Namn */}
                   <div className="space-y-2">
                     <label
-                      htmlFor="namn"
+                      htmlFor="name"
                       className="text-sm font-medium text-slate-700"
                     >
                       Namn
                     </label>
                     <input
                       type="text"
-                      id="namn"
-                      name="namn"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      id="name"
+                      name="name"
                       required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="Ditt namn"
@@ -489,17 +444,15 @@ export default function HomePage() {
                   {/* Telefonnummer */}
                   <div className="space-y-2">
                     <label
-                      htmlFor="telefon"
+                      htmlFor="phone"
                       className="text-sm font-medium text-slate-700"
                     >
                       Telefonnummer
                     </label>
                     <input
                       type="tel"
-                      id="telefon"
-                      name="telefon"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      id="phone"
+                      name="phone"
                       required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="070-123 45 67"
@@ -512,17 +465,15 @@ export default function HomePage() {
                   {/* E-post */}
                   <div className="space-y-2">
                     <label
-                      htmlFor="epost"
+                      htmlFor="email"
                       className="text-sm font-medium text-slate-700"
                     >
                       E-post
                     </label>
                     <input
                       type="email"
-                      id="epost"
-                      name="epost"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      id="email"
+                      name="email"
                       required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="din@epost.se"
@@ -532,17 +483,15 @@ export default function HomePage() {
                   {/* Stad / område */}
                   <div className="space-y-2">
                     <label
-                      htmlFor="stad"
+                      htmlFor="city"
                       className="text-sm font-medium text-slate-700"
                     >
                       Stad / område
                     </label>
                     <input
                       type="text"
-                      id="stad"
-                      name="stad"
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
+                      id="city"
+                      name="city"
                       required
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
                       placeholder="t.ex. Kristianstad, Åhus, Hässleholm"
@@ -553,17 +502,15 @@ export default function HomePage() {
                 {/* Meddelande - Full Width */}
                 <div className="space-y-2">
                   <label
-                    htmlFor="meddelande"
+                    htmlFor="message"
                     className="text-sm font-medium text-slate-700"
                   >
                     Meddelande
                   </label>
                   <textarea
-                    id="meddelande"
-                    name="meddelande"
+                    id="message"
+                    name="message"
                     rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
                     required
                     className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/40 resize-none"
                     placeholder="Beskriv ditt behov här..."
@@ -571,17 +518,18 @@ export default function HomePage() {
                 </div>
 
                 {/* Success/Error Messages */}
-                {success && (
-                  <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
-                    Tack! Vi har mottagit din förfrågan och återkommer till dig
-                    inom kort.
-                  </div>
-                )}
-                {error && (
-                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                    Något gick fel. Försök igen eller ring oss på 044–785 3002.
-                  </div>
-                )}
+                <div
+                  data-success-message
+                  className="hidden rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800"
+                >
+                  Tack! Vi återkommer till dig inom kort.
+                </div>
+                <div
+                  data-error-message
+                  className="hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+                >
+                  Något gick fel. Försök igen eller ring oss på 044–785 3002.
+                </div>
 
                 {/* CTA Buttons */}
                 <div className="space-y-3 pt-2">
@@ -590,9 +538,8 @@ export default function HomePage() {
                     type="submit"
                     variant="primary"
                     className="w-full sm:text-base"
-                    disabled={loading}
                   >
-                    {loading ? "Skickar..." : "Skicka förfrågan"}
+                    Skicka förfrågan
                   </Button>
 
                   {/* Secondary Phone Button */}

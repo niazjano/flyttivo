@@ -3,6 +3,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { OfferFormBindings } from "@/components/OfferFormBindings";
 
 export const metadata: Metadata = {
   title: "Flyttivo – Flyttfirma & Städning i Skåne",
@@ -30,6 +31,7 @@ export default function RootLayout({
           <SiteFooter />
         </div>
         <RevealOnScroll />
+        <OfferFormBindings />
       </body>
     </html>
   );
