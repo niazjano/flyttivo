@@ -372,6 +372,133 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="reveal bg-slate-100/60 py-16 sm:py-20" data-reveal data-reveal-id="why-us">
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="mx-auto max-w-3xl space-y-3 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Varför ska du välja Flyttivo?
+            </h2>
+            <p className="text-sm text-slate-600 sm:text-base">
+              Trygg, professionell och smidig flytt - anpassad efter dina behov.
+            </p>
+          </div>
+
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
+              <Image
+                src="/image/2%20guys%20moving%20coach.webp"
+                alt="Flyttivo personal som hjälper till med flytt"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  title: "Erfarna specialister",
+                  body: "Våra team arbetar metodiskt och effektivt för en trygg flytt från start till mål.",
+                  icon: (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z" />
+                      <path d="M9.5 12.5l1.5 1.5 3.5-3.5" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Pålitlig service",
+                  body: "Vi håller tider, kommunicerar tydligt och levererar alltid det vi lovar.",
+                  icon: (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M20 7l-8 10-4-4" />
+                      <path d="M4 12h4" />
+                      <path d="M16 7h4" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Tydliga priser",
+                  body: "Inga dolda avgifter och fullt RUT-avdrag när det är möjligt.",
+                  icon: (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v18" />
+                      <path d="M16 7.5c0-1.4-1.8-2.5-4-2.5s-4 1.1-4 2.5 1.8 2.5 4 2.5 4 1.1 4 2.5-1.8 2.5-4 2.5-4-1.1-4-2.5" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Anpassat efter dig",
+                  body: "Varje flytt är unik. Vi anpassar upplägget helt efter dina behov.",
+                  icon: (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12h16" />
+                      <path d="M12 4v16" />
+                      <circle cx="12" cy="12" r="7" />
+                    </svg>
+                  ),
+                },
+              ].map((reason) => (
+                <div
+                  key={reason.title}
+                  className="flex gap-4 rounded-2xl border border-slate-200/70 bg-white/80 p-4 shadow-[0_6px_18px_rgba(15,23,42,0.06)] backdrop-blur"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-sky-700">
+                    {reason.icon}
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-base font-semibold text-slate-900">
+                      {reason.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {reason.body}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Steps Section */}
       <section className="reveal reveal-fast bg-white py-16 sm:py-20" data-reveal data-reveal-id="steps">
         <div className="mx-auto max-w-6xl px-4 space-y-10 md:px-6">
