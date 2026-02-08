@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
@@ -33,17 +33,22 @@ const HERO_IMAGES = [
   },
 ];
 
-const HERO_SLIDE_DURATION = 0;
+const HERO_SLIDE_DURATION = 200;
 const HERO_SLIDE_DISPLAY = 2000;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [layerAIndex, setLayerAIndex] = useState(0);
+  const [layerBIndex, setLayerBIndex] = useState(0);
+  const [activeLayer, setActiveLayer] = useState<"a" | "b">("a");
+  const isTransitioningRef = useRef(false);
+  const preloadCache = useRef(new Set<string>());
+  const isMountedRef = useRef(true);
   const [isSliderReady, setIsSliderReady] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
+    isMountedRef.current = true;
     if (typeof window === "undefined") return;
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updatePreference = () => setReduceMotion(media.matches);
@@ -51,11 +56,17 @@ export default function HomePage() {
 
     if (media.addEventListener) {
       media.addEventListener("change", updatePreference);
-      return () => media.removeEventListener("change", updatePreference);
+      return () => {
+        isMountedRef.current = false;
+        media.removeEventListener("change", updatePreference);
+      };
     }
 
     media.addListener(updatePreference);
-    return () => media.removeListener(updatePreference);
+    return () => {
+      isMountedRef.current = false;
+      media.removeListener(updatePreference);
+    };
   }, []);
 
   useEffect(() => {
@@ -67,22 +78,45 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (reduceMotion || isTransitioning) return;
     if (!isSliderReady) return;
-    const timeout = window.setTimeout(() => {
-      setIsTransitioning(true);
-      setPreviousIndex(activeIndex);
-      setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    if (isTransitioningRef.current) return;
+
+    const timeout = window.setTimeout(async () => {
+      if (isTransitioningRef.current || !isMountedRef.current) return;
+      isTransitioningRef.current = true;
+
+      const nextIndex = (activeIndex + 1) % HERO_IMAGES.length;
+      const nextSrc = HERO_IMAGES[nextIndex].src;
+
+      if (!preloadCache.current.has(nextSrc)) {
+        await new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = nextSrc;
+        });
+        preloadCache.current.add(nextSrc);
+      }
+
+      if (!isMountedRef.current) return;
+
+      if (activeLayer === "a") {
+        setLayerBIndex(nextIndex);
+        setActiveLayer("b");
+      } else {
+        setLayerAIndex(nextIndex);
+        setActiveLayer("a");
+      }
+
+      setActiveIndex(nextIndex);
+
+      window.setTimeout(() => {
+        isTransitioningRef.current = false;
+      }, HERO_SLIDE_DURATION);
     }, HERO_SLIDE_DISPLAY);
 
     return () => window.clearTimeout(timeout);
-  }, [activeIndex, isSliderReady, isTransitioning, reduceMotion]);
-
-  useEffect(() => {
-    if (!isTransitioning) return;
-    setPreviousIndex(null);
-    setIsTransitioning(false);
-  }, [isTransitioning]);
+  }, [activeIndex, activeLayer, isSliderReady, reduceMotion]);
 
   return (
     <>
@@ -93,50 +127,44 @@ export default function HomePage() {
           className="hero-slider"
           data-reduce-motion={reduceMotion ? "true" : "false"}
         >
-          {!isSliderReady || reduceMotion ? (
-            <div className="hero-slide hero-slide-active">
+          <>
+            <div
+              className={`hero-layer ${
+                activeLayer === "a" ? "hero-layer-active" : ""
+              }`}
+              aria-hidden={activeLayer !== "a"}
+            >
               <Image
-                src={HERO_IMAGES[0].src}
-                alt={HERO_IMAGES[0].alt}
+                src={HERO_IMAGES[layerAIndex].src}
+                alt={HERO_IMAGES[layerAIndex].alt}
                 fill
-                priority
+                priority={layerAIndex === 0}
+                loading={layerAIndex === 0 ? "eager" : "lazy"}
+                fetchPriority={layerAIndex === 0 ? "high" : "low"}
                 sizes="100vw"
                 className="object-cover"
                 unoptimized
               />
             </div>
-          ) : (
-            [activeIndex, previousIndex]
-              .filter(
-                (value, index, self) =>
-                  value !== null && self.indexOf(value) === index
-              )
-              .map((index) => {
-                const image = HERO_IMAGES[index as number];
-                const isActive = index === activeIndex;
-                return (
-                  <div
-                    key={image.src}
-                    className={`hero-slide ${
-                      isActive ? "hero-slide-active" : "hero-slide-previous"
-                    }`}
-                    aria-hidden={!isActive}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      priority={isActive && index === 0}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      fetchPriority={index === 0 ? "high" : "low"}
-                      sizes="100vw"
-                      className="object-cover"
-                      unoptimized
-                    />
-                  </div>
-                );
-              })
-          )}
+            <div
+              className={`hero-layer ${
+                activeLayer === "b" ? "hero-layer-active" : ""
+              }`}
+              aria-hidden={activeLayer !== "b"}
+            >
+              <Image
+                src={HERO_IMAGES[layerBIndex].src}
+                alt={HERO_IMAGES[layerBIndex].alt}
+                fill
+                priority={layerBIndex === 0}
+                loading={layerBIndex === 0 ? "eager" : "lazy"}
+                fetchPriority={layerBIndex === 0 ? "high" : "low"}
+                sizes="100vw"
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          </>
         </div>
 
         {/* Dark Overlay for Readability */}

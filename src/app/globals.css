@@ -144,22 +144,19 @@ body {
   z-index: 0;
 }
 
-.hero-slide {
+.hero-layer {
   position: absolute;
   inset: 0;
   opacity: 0;
+  transition: opacity 200ms ease;
   will-change: opacity;
 }
 
-.hero-slide-active {
+.hero-layer-active {
   opacity: 1;
 }
 
-.hero-slide-previous {
-  opacity: 0;
-}
-
-.hero-slider[data-reduce-motion="true"] .hero-slide {
+.hero-slider[data-reduce-motion="true"] .hero-layer {
   transition: none;
 }
 
