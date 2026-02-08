@@ -252,144 +252,111 @@ export default function HomePage() {
           </div>
 
           {/* Service Cards Grid */}
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Flytt Service Card */}
-            <Card href="/flyttfirma">
-              {/* Cover Image */}
-              <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
-                <Image
-                  src="/image/flytt.webp"
-                  alt="Flytt inom Skåne"
-                  fill
-                  className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                  unoptimized
-                />
-                {/* Subtle overlay for better text readability if needed */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Card Content */}
-              <div className="relative p-5 sm:p-6">
-                {/* Subtle gradient overlay on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-50/0 to-sky-50/50 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-              
-                <div className="relative">
-                  {/* Icon Area */}
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-xl text-sky-700">
-                    🚚
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="mb-1.5 text-base font-semibold text-slate-900 sm:text-lg">
-                    Flytt inom Skåne
-                  </h3>
-
-                  {/* Body Text */}
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    Vi hjälper dig med allt från mindre lägenhetsflyttar till större
-                    bohagsflyttar. Vi kan bära, packa, montera och transportera.
-                  </p>
-
-                  {/* Link Text */}
-                  <p className="mt-3 text-[13px] font-medium text-sky-700 transition-colors group-hover:text-sky-800">
-                    Läs mer om våra flyttjänster →
-                  </p>
+            <Card href="/flyttfirma" className="transition-all duration-300 ease-out hover:shadow-md">
+              <div className="flex h-full flex-col p-6 sm:p-7">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-700">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 16.5V7.5a1 1 0 0 1 1-1h8l3 3h5a1 1 0 0 1 1 1v6" />
+                    <path d="M5.5 18a1.5 1.5 0 1 0 3 0" />
+                    <path d="M15.5 18a1.5 1.5 0 1 0 3 0" />
+                    <path d="M8.5 18h7" />
+                  </svg>
                 </div>
+                <h3 className="mb-2 text-lg font-semibold text-slate-900">
+                  Flytt inom Skåne
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Vi hjälper dig med allt från mindre lägenhetsflyttar till större
+                  bohagsflyttar. Vi kan bära, packa, montera och transportera.
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-medium text-sky-700">
+                  Läs mer om våra flyttjänster
+                  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
               </div>
             </Card>
 
             {/* Städning Service Card */}
-            <Card href="/stadning">
-              {/* Cover Image */}
-              <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
-                <Image
-                  src="/image/stad.webp"
-                  alt="Flyttstädning & städning"
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                {/* Subtle overlay for better text readability if needed */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent" />
-              </div>
-
-              {/* Card Content */}
-              <div className="relative p-5 sm:p-6">
-                {/* Subtle gradient overlay on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-50/0 to-sky-50/50 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-              
-                <div className="relative">
-                  {/* Icon Area */}
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-xl text-sky-700">
-                    ✨
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="mb-1.5 text-base font-semibold text-slate-900 sm:text-lg">
-                    Flyttstädning & städning
-                  </h3>
-
-                  {/* Body Text */}
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    Noggrann flyttstädning med städgaranti samt löpande hemstädning,
-                    kontorsstädning och trappstädning – alltid med RUT-avdrag.
-                  </p>
-
-                  {/* Link Text */}
-                  <p className="mt-3 text-[13px] font-medium text-sky-700 transition-colors group-hover:text-sky-800">
-                    Läs mer om våra städtjänster →
-                  </p>
+            <Card href="/stadning" className="transition-all duration-300 ease-out hover:shadow-md">
+              <div className="flex h-full flex-col p-6 sm:p-7">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-700">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 20h10" />
+                    <path d="M12 4v16" />
+                    <path d="M5 8h14" />
+                    <path d="M8 8c0 3-2 5-2 5" />
+                    <path d="M16 8c0 3 2 5 2 5" />
+                  </svg>
                 </div>
+                <h3 className="mb-2 text-lg font-semibold text-slate-900">
+                  Flyttstädning & städning
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Noggrann flyttstädning med städgaranti samt löpande hemstädning,
+                  kontorsstädning och trappstädning – alltid med RUT-avdrag.
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-medium text-sky-700">
+                  Läs mer om våra städtjänster
+                  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
               </div>
             </Card>
 
             {/* Trygg Partner Card */}
-            <Card href="/trygg-partner">
-              {/* Cover Image */}
-              <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
-                <Image
-                  src="/image/trygg1.webp"
-                  alt="Trygg partner"
-                  fill
-                  className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                  unoptimized
-                />
-                {/* Subtle overlay for better text readability if needed */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Card Content */}
-              <div className="relative p-5 sm:p-6">
-                {/* Subtle gradient overlay on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-50/0 to-sky-50/50 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-              
-                <div className="relative">
-                  {/* Icon Area */}
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-xl text-sky-700">
-                    🛡️
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="mb-1.5 text-base font-semibold text-slate-900 sm:text-lg">
-                    Trygg partner
-                  </h3>
-
-                  {/* Body Text */}
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    Vi dyker upp i tid, håller vad vi lovar och kommunicerar tydligt
-                    genom hela uppdraget.
-                  </p>
-
-                  {/* Link Text */}
-                  <p className="mt-3 text-[13px] font-medium text-sky-700 transition-colors group-hover:text-sky-800">
-                    Läs mer om vår trygghet →
-                  </p>
+            <Card href="/trygg-partner" className="transition-all duration-300 ease-out hover:shadow-md">
+              <div className="flex h-full flex-col p-6 sm:p-7">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-700">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z" />
+                    <path d="M9.5 12.5l1.5 1.5 3.5-3.5" />
+                  </svg>
                 </div>
+                <h3 className="mb-2 text-lg font-semibold text-slate-900">
+                  Trygg partner
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Vi dyker upp i tid, håller vad vi lovar och kommunicerar tydligt
+                  genom hela uppdraget.
+                </p>
+                <span className="mt-4 inline-flex items-center text-sm font-medium text-sky-700">
+                  Läs mer om vår trygghet
+                  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
               </div>
             </Card>
           </div>
