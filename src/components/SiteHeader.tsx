@@ -71,7 +71,8 @@ export function SiteHeader() {
               width={120}
               height={40}
               className="h-8 w-auto md:h-10"
-              priority
+              loading="lazy"
+              decoding="async"
             />
             <span className="hidden text-sm text-slate-600 lg:inline">
               Flytt & städ i Skåne

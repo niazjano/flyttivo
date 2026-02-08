@@ -8,16 +8,16 @@ import { Card } from "@/components/ui/Card";
 
 const HERO_IMAGES = [
   {
+    src: "/image/3%20cars%20flyttivo%20pic.png",
+    alt: "Flyttivo flyttbilar i rad",
+  },
+  {
     src: "/image/2%20guys%20moving%20coach.png",
     alt: "Flyttivo flyttpersonal bär soffa",
   },
   {
     src: "/image/3%20boys%20infornt%20of%20car.png",
     alt: "Flyttivo team framför flyttbil",
-  },
-  {
-    src: "/image/3%20cars%20flyttivo%20pic.png",
-    alt: "Flyttivo flyttbilar i rad",
   },
   {
     src: "/image/3%20images.png",
@@ -31,15 +31,15 @@ const HERO_IMAGES = [
     src: "/image/snow.png",
     alt: "Flyttivo snöskottning",
   },
-  {
-    src: "/image/flytt.png",
-    alt: "Flyttivo flytthjälp i Skåne",
-  },
 ];
+
+const HERO_SLIDE_DURATION = 350;
+const HERO_SLIDE_DISPLAY = 1000;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -58,32 +58,30 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    HERO_IMAGES.forEach((image) => {
-      const preload = new window.Image();
-      preload.src = image.src;
-    });
-  }, []);
+    if (reduceMotion || isTransitioning) return;
+    const timeout = window.setTimeout(() => {
+      setIsTransitioning(true);
+      setPreviousIndex(activeIndex);
+      setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, HERO_SLIDE_DISPLAY);
+
+    return () => window.clearTimeout(timeout);
+  }, [activeIndex, isTransitioning, reduceMotion]);
 
   useEffect(() => {
-    if (reduceMotion || isPaused) return;
-    const interval = window.setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4500);
+    if (!isTransitioning) return;
+    const timeout = window.setTimeout(() => {
+      setPreviousIndex(null);
+      setIsTransitioning(false);
+    }, HERO_SLIDE_DURATION);
 
-    return () => window.clearInterval(interval);
-  }, [isPaused, reduceMotion]);
+    return () => window.clearTimeout(timeout);
+  }, [isTransitioning]);
 
   return (
     <>
       {/* Premium Hero Section - Full Width Edge-to-Edge */}
-      <section
-        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-      >
+      <section className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Hero Image Slider - Full Width */}
         <div
           className="hero-slider"
@@ -102,25 +100,36 @@ export default function HomePage() {
               />
             </div>
           ) : (
-            HERO_IMAGES.map((image, index) => (
-              <div
-                key={image.src}
-                className={`hero-slide ${
-                  index === activeIndex ? "hero-slide-active" : ""
-                }`}
-                aria-hidden={index !== activeIndex}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  priority={index === 0}
-                  sizes="100vw"
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            ))
+            [activeIndex, previousIndex]
+              .filter(
+                (value, index, self) =>
+                  value !== null && self.indexOf(value) === index
+              )
+              .map((index) => {
+                const image = HERO_IMAGES[index as number];
+                const isActive = index === activeIndex;
+                return (
+                  <div
+                    key={image.src}
+                    className={`hero-slide ${
+                      isActive ? "hero-slide-active" : "hero-slide-previous"
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      priority={isActive && index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchPriority={index === 0 ? "high" : "low"}
+                      sizes="100vw"
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                );
+              })
           )}
         </div>
 
@@ -202,7 +211,7 @@ export default function HomePage() {
                   fill
                   className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
+                  loading="lazy"
                   unoptimized
                 />
                 {/* Subtle overlay for better text readability if needed */}
@@ -249,7 +258,7 @@ export default function HomePage() {
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
+                  loading="lazy"
                 />
                 {/* Subtle overlay for better text readability if needed */}
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent" />
@@ -295,7 +304,7 @@ export default function HomePage() {
                   fill
                   className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
+                  loading="lazy"
                   unoptimized
                 />
                 {/* Subtle overlay for better text readability if needed */}
