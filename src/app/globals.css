@@ -138,6 +138,28 @@ body {
   animation-delay: 420ms;
 }
 
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  will-change: opacity;
+}
+
+.hero-slide-active {
+  opacity: 1;
+}
+
+.hero-slider[data-reduce-motion="true"] .hero-slide {
+  transition: none;
+}
+
 .js-enabled .reveal {
   opacity: 0;
   transform: translateY(20px);

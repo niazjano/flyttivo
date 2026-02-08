@@ -2,48 +2,127 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
+const HERO_IMAGES = [
+  {
+    src: "/image/2%20guys%20moving%20coach.png",
+    alt: "Flyttivo flyttpersonal bär soffa",
+  },
+  {
+    src: "/image/3%20boys%20infornt%20of%20car.png",
+    alt: "Flyttivo team framför flyttbil",
+  },
+  {
+    src: "/image/3%20cars%20flyttivo%20pic.png",
+    alt: "Flyttivo flyttbilar i rad",
+  },
+  {
+    src: "/image/3%20images.png",
+    alt: "Flytt och städ i hemmet",
+  },
+  {
+    src: "/image/garden.png",
+    alt: "Flyttivo trädgårdsskötsel",
+  },
+  {
+    src: "/image/snow.png",
+    alt: "Flyttivo snöskottning",
+  },
+  {
+    src: "/image/flytt.png",
+    alt: "Flyttivo flytthjälp i Skåne",
+  },
+];
+
 export default function HomePage() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    // Ensure video plays smoothly on all devices
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay was prevented, which is fine - browser will handle it
-      });
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReduceMotion(media.matches);
+    updatePreference();
+
+    if (media.addEventListener) {
+      media.addEventListener("change", updatePreference);
+      return () => media.removeEventListener("change", updatePreference);
     }
+
+    media.addListener(updatePreference);
+    return () => media.removeListener(updatePreference);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    HERO_IMAGES.forEach((image) => {
+      const preload = new window.Image();
+      preload.src = image.src;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || isPaused) return;
+    const interval = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused, reduceMotion]);
 
   return (
     <>
       {/* Premium Hero Section - Full Width Edge-to-Edge */}
-      <section className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* World-Class Video Background - Full Width */}
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/videos/banner.gif"
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{
-            objectPosition: "center center",
-          }}
+      <section
+        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+        {/* Hero Image Slider - Full Width */}
+        <div
+          className="hero-slider"
+          data-reduce-motion={reduceMotion ? "true" : "false"}
         >
-          <source src="/videos/flyttivo-hero.mov" type="video/quicktime" />
-          {/* Fallback image if video doesn't load */}
-          <img
-            src="/videos/banner.gif"
-            alt="Flyttivo – pålitlig flytt- och städfirma i Skåne"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </video>
+          {reduceMotion ? (
+            <div className="hero-slide hero-slide-active">
+              <Image
+                src={HERO_IMAGES[0].src}
+                alt={HERO_IMAGES[0].alt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          ) : (
+            HERO_IMAGES.map((image, index) => (
+              <div
+                key={image.src}
+                className={`hero-slide ${
+                  index === activeIndex ? "hero-slide-active" : ""
+                }`}
+                aria-hidden={index !== activeIndex}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            ))
+          )}
+        </div>
 
         {/* Dark Overlay for Readability */}
         <div className="absolute inset-0 bg-black/40" />
