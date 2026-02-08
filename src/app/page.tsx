@@ -154,7 +154,7 @@ export default function HomePage() {
           {/* Premium CTA Buttons */}
           <div className="hero-fade-up hero-fade-up-delay-2 mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* Primary CTA - Flyttivo Blue */}
-            <Button variant="primary" href="/kontakt">
+            <Button variant="primary" href="https://tally.so/r/pbBdkB">
               Få gratis offert
             </Button>
             {/* Secondary CTA - Transparent White Border */}

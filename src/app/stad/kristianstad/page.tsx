@@ -82,7 +82,7 @@ export default function StadKristianstadPage() {
             tydligt prisförslag.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button variant="primary" href="/kontakt">
+            <Button variant="primary" href="https://tally.so/r/pbBdkB">
               Få gratis offert
             </Button>
             <Link
