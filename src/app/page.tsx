@@ -41,7 +41,9 @@ export default function HomePage() {
   const [layerAIndex, setLayerAIndex] = useState(0);
   const [layerBIndex, setLayerBIndex] = useState(0);
   const [activeLayer, setActiveLayer] = useState<"a" | "b">("a");
-  const isTransitioningRef = useRef(false);
+  const intervalRef = useRef<number | null>(null);
+  const activeIndexRef = useRef(0);
+  const activeLayerRef = useRef<"a" | "b">("a");
   const preloadCache = useRef(new Set<string>());
   const isMountedRef = useRef(true);
   const [isSliderReady, setIsSliderReady] = useState(false);
@@ -79,13 +81,14 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isSliderReady) return;
-    if (isTransitioningRef.current) return;
+    if (reduceMotion) return;
+    if (intervalRef.current !== null) return;
 
-    const timeout = window.setTimeout(async () => {
-      if (isTransitioningRef.current || !isMountedRef.current) return;
-      isTransitioningRef.current = true;
+    intervalRef.current = window.setInterval(async () => {
+      if (!isMountedRef.current) return;
 
-      const nextIndex = (activeIndex + 1) % HERO_IMAGES.length;
+      const currentIndex = activeIndexRef.current;
+      const nextIndex = (currentIndex + 1) % HERO_IMAGES.length;
       const nextSrc = HERO_IMAGES[nextIndex].src;
 
       if (!preloadCache.current.has(nextSrc)) {
@@ -100,23 +103,27 @@ export default function HomePage() {
 
       if (!isMountedRef.current) return;
 
-      if (activeLayer === "a") {
+      if (activeLayerRef.current === "a") {
         setLayerBIndex(nextIndex);
         setActiveLayer("b");
+        activeLayerRef.current = "b";
       } else {
         setLayerAIndex(nextIndex);
         setActiveLayer("a");
+        activeLayerRef.current = "a";
       }
 
       setActiveIndex(nextIndex);
-
-      window.setTimeout(() => {
-        isTransitioningRef.current = false;
-      }, HERO_SLIDE_DURATION);
+      activeIndexRef.current = nextIndex;
     }, HERO_SLIDE_DISPLAY);
 
-    return () => window.clearTimeout(timeout);
-  }, [activeIndex, activeLayer, isSliderReady, reduceMotion]);
+    return () => {
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isSliderReady, reduceMotion]);
 
   return (
     <>
