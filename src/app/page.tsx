@@ -31,6 +31,18 @@ const HERO_IMAGES = [
     src: "/image/snow.webp",
     alt: "Flyttivo snöskottning",
   },
+  {
+    src: "/image/flytt.webp",
+    alt: "Flyttivo flytthjälp i Skåne",
+  },
+  {
+    src: "/image/stad.webp",
+    alt: "Flyttstädning & städning",
+  },
+  {
+    src: "/image/trygg1.webp",
+    alt: "Trygg partner",
+  },
 ];
 
 const HERO_SLIDE_DURATION = 200;
@@ -81,7 +93,6 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isSliderReady) return;
-    if (reduceMotion) return;
     if (intervalRef.current !== null) return;
 
     intervalRef.current = window.setInterval(async () => {
