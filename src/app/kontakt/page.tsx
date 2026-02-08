@@ -1,5 +1,3 @@
-"use client";
-
 export default function KontaktPage() {
   return (
     <div className="space-y-8">
@@ -14,119 +12,14 @@ export default function KontaktPage() {
         </p>
       </header>
 
-      <form
-        id="kontaktForm"
-        className="grid gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-2"
-        data-offer-form
-      >
-        <div className="space-y-4 md:col-span-1">
-          <div className="space-y-1.5">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-slate-900"
-            >
-              Namn
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="block w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-              placeholder="För- och efternamn"
-              required
-            />
-          </div>
-          <div className="space-y-1.5">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-slate-900"
-            >
-              E-post
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="block w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-              placeholder="din@epost.se"
-              required
-            />
-          </div>
-          <div className="space-y-1.5">
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-slate-900"
-            >
-              Telefon
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              className="block w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-              placeholder="07x-xxx xx xx"
-              required
-            />
-          </div>
-          <div className="space-y-1.5">
-            <label
-              htmlFor="city"
-              className="block text-sm font-medium text-slate-900"
-            >
-              Stad / område
-            </label>
-            <input
-              id="city"
-              name="city"
-              type="text"
-              className="block w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-              placeholder="t.ex. Kristianstad, Åhus, Hässleholm"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="space-y-4 md:col-span-1">
-          <div className="space-y-1.5">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-slate-900"
-            >
-              Meddelande
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={6}
-              className="block w-full resize-none rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-              placeholder="Beskriv kort vad du behöver hjälp med (flytt, flyttstädning, hemstädning osv.), datum och ort."
-              required
-            />
-          </div>
-          <div
-            data-success-message
-            className="hidden rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800"
-          >
-            Tack! Vi återkommer till dig inom kort.
-          </div>
-          <div
-            data-error-message
-            className="hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
-          >
-            Något gick fel. Försök igen eller ring oss på 044–785 3002.
-          </div>
-          <button
-            type="submit"
-            className="inline-flex w-full items-center justify-center rounded-full bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:opacity-70"
-          >
-            Skicka förfrågan
-          </button>
-          <p className="text-xs text-slate-500">
-            Genom att skicka formuläret godkänner du att vi kontaktar dig via
-            e-post eller telefon med ett prisförslag.
-          </p>
-        </div>
-      </form>
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+        <iframe
+          title="Tally kontaktformulär"
+          src="https://tally.so/r/jaQ6L6"
+          loading="lazy"
+          className="h-[700px] w-full rounded-2xl border-0"
+        />
+      </div>
     </div>
   );
 }
