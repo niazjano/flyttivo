@@ -61,7 +61,7 @@ export function SiteHeader() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-sm">
+    <header className="sticky top-8 z-40 border-b bg-white/80 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl px-4 py-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
