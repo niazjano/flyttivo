@@ -653,6 +653,20 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Tally Embed Section */}
+        <section className="reveal py-20 bg-slate-50" data-reveal data-reveal-id="tally">
+          <div className="mx-auto max-w-5xl px-4">
+            <div className="rounded-3xl border border-slate-200/60 bg-white p-4 shadow-md sm:p-6">
+              <iframe
+                title="Tally offertformulär"
+                src="https://tally.so/r/jaQ6L6"
+                loading="lazy"
+                className="h-[700px] w-full rounded-2xl border-0"
+              />
+            </div>
+          </div>
+        </section>
       </div>
 
       {/* Floating WhatsApp Button */}
