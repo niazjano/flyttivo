@@ -8,27 +8,27 @@ import { Card } from "@/components/ui/Card";
 
 const HERO_IMAGES = [
   {
-    src: "/image/3%20cars%20flyttivo%20pic.png",
+    src: "/image/3%20cars%20flyttivo%20pic.webp",
     alt: "Flyttivo flyttbilar i rad",
   },
   {
-    src: "/image/2%20guys%20moving%20coach.png",
+    src: "/image/2%20guys%20moving%20coach.webp",
     alt: "Flyttivo flyttpersonal bär soffa",
   },
   {
-    src: "/image/3%20boys%20infornt%20of%20car.png",
+    src: "/image/3%20boys%20infornt%20of%20car.webp",
     alt: "Flyttivo team framför flyttbil",
   },
   {
-    src: "/image/3%20images.png",
+    src: "/image/3%20images.webp",
     alt: "Flytt och städ i hemmet",
   },
   {
-    src: "/image/garden.png",
+    src: "/image/garden.webp",
     alt: "Flyttivo trädgårdsskötsel",
   },
   {
-    src: "/image/snow.png",
+    src: "/image/snow.webp",
     alt: "Flyttivo snöskottning",
   },
 ];
@@ -40,6 +40,7 @@ export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isSliderReady, setIsSliderReady] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -58,7 +59,16 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    const id = window.requestAnimationFrame(() => {
+      setIsSliderReady(true);
+    });
+
+    return () => window.cancelAnimationFrame(id);
+  }, []);
+
+  useEffect(() => {
     if (reduceMotion || isTransitioning) return;
+    if (!isSliderReady) return;
     const timeout = window.setTimeout(() => {
       setIsTransitioning(true);
       setPreviousIndex(activeIndex);
@@ -66,7 +76,7 @@ export default function HomePage() {
     }, HERO_SLIDE_DISPLAY);
 
     return () => window.clearTimeout(timeout);
-  }, [activeIndex, isTransitioning, reduceMotion]);
+  }, [activeIndex, isSliderReady, isTransitioning, reduceMotion]);
 
   useEffect(() => {
     if (!isTransitioning) return;
@@ -87,7 +97,7 @@ export default function HomePage() {
           className="hero-slider"
           data-reduce-motion={reduceMotion ? "true" : "false"}
         >
-          {reduceMotion ? (
+          {!isSliderReady || reduceMotion ? (
             <div className="hero-slide hero-slide-active">
               <Image
                 src={HERO_IMAGES[0].src}
@@ -206,7 +216,7 @@ export default function HomePage() {
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
-                  src="/image/flytt.png"
+                  src="/image/flytt.webp"
                   alt="Flytt inom Skåne"
                   fill
                   className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
@@ -253,7 +263,7 @@ export default function HomePage() {
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
-                  src="/image/stad.png"
+                  src="/image/stad.webp"
                   alt="Flyttstädning & städning"
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -299,7 +309,7 @@ export default function HomePage() {
               {/* Cover Image */}
               <div className="relative h-48 w-full overflow-hidden rounded-t-2xl bg-slate-100">
                 <Image
-                  src="/image/trygg1.png"
+                  src="/image/trygg1.webp"
                   alt="Trygg partner"
                   fill
                   className="relative z-0 object-cover transition-transform duration-300 group-hover:scale-105"
