@@ -33,8 +33,8 @@ const HERO_IMAGES = [
   },
 ];
 
-const HERO_SLIDE_DURATION = 400;
-const HERO_SLIDE_DISPLAY = 1500;
+const HERO_SLIDE_DURATION = 0;
+const HERO_SLIDE_DISPLAY = 2000;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -80,12 +80,8 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isTransitioning) return;
-    const timeout = window.setTimeout(() => {
-      setPreviousIndex(null);
-      setIsTransitioning(false);
-    }, HERO_SLIDE_DURATION);
-
-    return () => window.clearTimeout(timeout);
+    setPreviousIndex(null);
+    setIsTransitioning(false);
   }, [isTransitioning]);
 
   return (
