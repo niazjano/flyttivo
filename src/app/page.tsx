@@ -33,8 +33,8 @@ const HERO_IMAGES = [
   },
 ];
 
-const HERO_SLIDE_DURATION = 350;
-const HERO_SLIDE_DISPLAY = 1000;
+const HERO_SLIDE_DURATION = 2500;
+const HERO_SLIDE_DISPLAY = 60000;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
