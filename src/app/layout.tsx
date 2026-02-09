@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   description:
     "Flyttivo är en lokal flyttfirma och städfirma i Skåne med fokus på trygghet, professionalism och personlig service.",
   icons: {
-    icon: "/logo/flyttivo-logo.png",
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/logo/flyttivo-logo.png",
   },
 };
@@ -22,6 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv">
+      <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-50 bg-[#1E5F99] text-white">
