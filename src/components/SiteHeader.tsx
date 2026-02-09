@@ -77,13 +77,6 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <Link
-            href="https://tally.so/r/jaQ6L6"
-            className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-full bg-[#1E5F99] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#174A77] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5F99] focus-visible:ring-offset-2 sm:text-sm"
-          >
-            Få gratis offert
-          </Link>
-
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-2 text-sm font-medium text-slate-700 lg:flex">
             {navLinks.map((link) => {
