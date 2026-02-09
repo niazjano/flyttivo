@@ -160,8 +160,30 @@ html {
   opacity: 1;
 }
 
+.hero-image {
+  transform: scale(1);
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.hero-layer-active .hero-image {
+  animation: heroZoom 3000ms ease-out 250ms both;
+}
+
 .hero-slider[data-reduce-motion="true"] .hero-layer {
   transition: none;
+}
+
+.hero-slider[data-reduce-motion="true"] .hero-image {
+  animation: none;
+  transform: scale(1);
 }
 
 .floating-cta {
@@ -234,7 +256,8 @@ html {
   .hero-fade-up,
   .reveal,
   .mobile-menu-animate,
-  .floating-cta {
+  .floating-cta,
+  .hero-image {
     animation: none !important;
     transition: none !important;
     transform: none !important;

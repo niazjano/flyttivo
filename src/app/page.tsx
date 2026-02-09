@@ -46,17 +46,14 @@ const HERO_IMAGES = [
 ];
 
 const HERO_SLIDE_DISPLAY = 3000;
+const HERO_FADE_DURATION = 250;
+const HERO_SLIDE_INTERVAL = HERO_SLIDE_DISPLAY + HERO_FADE_DURATION;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [layerAIndex, setLayerAIndex] = useState(0);
-  const [layerBIndex, setLayerBIndex] = useState(() =>
-    HERO_IMAGES.length > 1 ? 1 : 0
-  );
-  const [activeLayer, setActiveLayer] = useState<"a" | "b">("a");
   const intervalRef = useRef<number | null>(null);
+  const startTimeoutRef = useRef<number | null>(null);
   const activeIndexRef = useRef(0);
-  const activeLayerRef = useRef<"a" | "b">("a");
   const preloadCache = useRef(new Set<string>());
   const isMountedRef = useRef(true);
   const [isSliderReady, setIsSliderReady] = useState(false);
@@ -96,33 +93,35 @@ export default function HomePage() {
     if (!isSliderReady) return;
     if (intervalRef.current !== null) return;
 
-    intervalRef.current = window.setInterval(() => {
+    const advanceSlide = () => {
       if (!isMountedRef.current) return;
 
       const currentIndex = activeIndexRef.current;
       const nextIndex = (currentIndex + 1) % HERO_IMAGES.length;
 
-      if (activeLayerRef.current === "a") {
-        setLayerBIndex(nextIndex);
-        setActiveLayer("b");
-        activeLayerRef.current = "b";
-      } else {
-        setLayerAIndex(nextIndex);
-        setActiveLayer("a");
-        activeLayerRef.current = "a";
-      }
-
       setActiveIndex(nextIndex);
       activeIndexRef.current = nextIndex;
+    };
+
+    startTimeoutRef.current = window.setTimeout(() => {
+      advanceSlide();
+      intervalRef.current = window.setInterval(
+        advanceSlide,
+        HERO_SLIDE_INTERVAL
+      );
     }, HERO_SLIDE_DISPLAY);
 
     return () => {
+      if (startTimeoutRef.current !== null) {
+        window.clearTimeout(startTimeoutRef.current);
+        startTimeoutRef.current = null;
+      }
       if (intervalRef.current !== null) {
         window.clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
     };
-  }, [isSliderReady, reduceMotion]);
+  }, [isSliderReady]);
 
   useEffect(() => {
     if (!isSliderReady || typeof window === "undefined") return;
@@ -151,44 +150,27 @@ export default function HomePage() {
           className="hero-slider"
           data-reduce-motion={reduceMotion ? "true" : "false"}
         >
-          <>
+          {HERO_IMAGES.map((image, index) => (
             <div
+              key={image.src}
               className={`hero-layer ${
-                activeLayer === "a" ? "hero-layer-active" : ""
+                activeIndex === index ? "hero-layer-active" : ""
               }`}
-              aria-hidden={activeLayer !== "a"}
+              aria-hidden={activeIndex !== index}
             >
               <Image
-                src={HERO_IMAGES[layerAIndex].src}
-                alt={HERO_IMAGES[layerAIndex].alt}
+                src={image.src}
+                alt={image.alt}
                 fill
-                priority={layerAIndex === 0}
-                loading={layerAIndex === 0 ? "eager" : "lazy"}
-                fetchPriority={layerAIndex === 0 ? "high" : "low"}
+                priority={index < 2}
+                loading={index < 2 ? "eager" : "lazy"}
+                fetchPriority={index < 2 ? "high" : "low"}
                 sizes="100vw"
-                className="object-cover"
+                className="hero-image object-cover"
                 unoptimized
               />
             </div>
-            <div
-              className={`hero-layer ${
-                activeLayer === "b" ? "hero-layer-active" : ""
-              }`}
-              aria-hidden={activeLayer !== "b"}
-            >
-              <Image
-                src={HERO_IMAGES[layerBIndex].src}
-                alt={HERO_IMAGES[layerBIndex].alt}
-                fill
-                priority={layerBIndex === 0}
-                loading={layerBIndex === 0 ? "eager" : "lazy"}
-                fetchPriority={layerBIndex === 0 ? "high" : "low"}
-                sizes="100vw"
-                className="object-cover"
-                unoptimized
-              />
-            </div>
-          </>
+          ))}
         </div>
 
         {/* Dark Overlay for Readability */}
