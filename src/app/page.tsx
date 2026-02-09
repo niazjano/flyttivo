@@ -237,6 +237,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Customer Offer Section */}
+      <section
+        className="reveal bg-slate-50 py-10 sm:py-12"
+        data-reveal
+        data-reveal-id="offer"
+      >
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-3xl border border-slate-200/70 bg-white/90 px-6 py-8 text-center shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur sm:px-10 sm:py-10">
+            <div className="space-y-3">
+              <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+                Trygg flytt & städ – med en extra kundförmån just nu
+              </h2>
+              <p className="text-sm text-slate-600 sm:text-base">
+                För att säkerställa hög kvalitet tar vi endast emot ett
+                begränsat antal uppdrag.
+              </p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
+                15% kundförmån på första bokningen
+              </p>
+            </div>
+            <Button variant="primary" href="https://tally.so/r/pbBdkB">
+              Få gratis offert
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section - Modern Premium Design */}
       <section className="reveal reveal-fast bg-slate-50 py-16 sm:py-20" data-reveal data-reveal-id="services">
         <div className="mx-auto max-w-6xl px-4 space-y-8 md:px-6">
