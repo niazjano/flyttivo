@@ -49,6 +49,34 @@ const HERO_SLIDE_DISPLAY = 3000;
 const HERO_FADE_DURATION = 250;
 const HERO_SLIDE_INTERVAL = HERO_SLIDE_DISPLAY + HERO_FADE_DURATION;
 
+const FAQ_ITEMS = [
+  {
+    question: "Är Flyttivo försäkrat?",
+    answer:
+      "Ja. Alla våra uppdrag är fullt försäkrade, så du kan känna dig trygg genom hela flytten eller städningen.",
+  },
+  {
+    question: "Finns det några dolda kostnader?",
+    answer:
+      "Nej. Du får alltid ett tydligt prisförslag i förväg – inga överraskningar eller extra avgifter.",
+  },
+  {
+    question: "Hur snabbt kan ni hjälpa mig?",
+    answer:
+      "Vi återkommer oftast samma dag och kan ofta hjälpa till med kort varsel beroende på tillgänglighet.",
+  },
+  {
+    question: "Vad ingår i flytt- eller städtjänsten?",
+    answer:
+      "Vi anpassar alltid tjänsten efter dina behov. Allt från packning och transport till flyttstädning kan ingå.",
+  },
+  {
+    question: "Hur fungerar RUT-avdraget?",
+    answer:
+      "Vi sköter hela processen. Du betalar bara halva arbetskostnaden direkt på fakturan.",
+  },
+];
+
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalRef = useRef<number | null>(null);
@@ -58,6 +86,7 @@ export default function HomePage() {
   const isMountedRef = useRef(true);
   const [isSliderReady, setIsSliderReady] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -384,6 +413,64 @@ export default function HomePage() {
                 </span>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="reveal bg-white py-16 sm:py-20" data-reveal data-reveal-id="faq">
+        <div className="mx-auto max-w-5xl px-4 md:px-6">
+          <div className="mx-auto max-w-3xl space-y-3 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Vanliga frågor
+            </h2>
+            <p className="text-sm text-slate-600 sm:text-base">
+              Tydliga svar på de vanligaste frågorna innan du bokar.
+            </p>
+          </div>
+
+          <div className="mt-10 space-y-4">
+            {FAQ_ITEMS.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={item.question}
+                  className="rounded-2xl border border-slate-200/70 bg-white shadow-[0_6px_18px_rgba(15,23,42,0.06)]"
+                >
+                  <h3>
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-sm font-semibold text-slate-900 sm:text-base"
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-panel-${index}`}
+                      onClick={() =>
+                        setOpenFaqIndex((prev) => (prev === index ? -1 : index))
+                      }
+                    >
+                      <span>{item.question}</span>
+                      <span
+                        className={`flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-transform ${
+                          isOpen ? "rotate-45" : ""
+                        }`}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </button>
+                  </h3>
+                  <div
+                    id={`faq-panel-${index}`}
+                    className={`faq-panel px-6 ${
+                      isOpen ? "faq-panel-open" : ""
+                    }`}
+                  >
+                    <p className="pb-5 text-sm leading-relaxed text-slate-600 sm:text-base">
+                      {item.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
