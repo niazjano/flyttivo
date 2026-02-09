@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -47,6 +48,33 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <Link
+          href="/#offer"
+          className="floating-cta fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-2 rounded-full border border-white/15 bg-[#1E5F99] px-4 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)] transition hover:scale-[1.03] hover:shadow-[0_14px_34px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:inline-flex md:right-6"
+          aria-label="Få offert – gå till offertformuläret"
+        >
+          <span>Få offert</span>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="M13 5l7 7-7 7" />
+          </svg>
+        </Link>
+        <Link
+          href="/#offer"
+          className="floating-cta fixed bottom-4 right-4 z-50 inline-flex items-center justify-center rounded-full bg-[#1E5F99] px-4 py-3 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(15,23,42,0.2)] transition hover:scale-[1.03] hover:shadow-[0_14px_32px_rgba(15,23,42,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:hidden"
+          aria-label="Få offert – gå till offertformuläret"
+        >
+          Få offert
+        </Link>
         <RevealOnScroll />
       </body>
     </html>

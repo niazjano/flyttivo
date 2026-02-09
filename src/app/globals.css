@@ -44,6 +44,10 @@ body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom scrollbar for game dock */
 .custom-scrollbar {
   scrollbar-width: thin;
@@ -148,7 +152,7 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 200ms ease;
+  transition: opacity 250ms ease-in-out;
   will-change: opacity;
 }
 
@@ -158,6 +162,10 @@ body {
 
 .hero-slider[data-reduce-motion="true"] .hero-layer {
   transition: none;
+}
+
+.floating-cta {
+  animation: fadeIn 360ms ease-out 160ms both;
 }
 
 .js-enabled .reveal.reveal-fast {
@@ -219,9 +227,14 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .hero-fade-up,
   .reveal,
-  .mobile-menu-animate {
+  .mobile-menu-animate,
+  .floating-cta {
     animation: none !important;
     transition: none !important;
     transform: none !important;

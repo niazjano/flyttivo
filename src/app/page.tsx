@@ -45,13 +45,14 @@ const HERO_IMAGES = [
   },
 ];
 
-const HERO_SLIDE_DURATION = 200;
-const HERO_SLIDE_DISPLAY = 2000;
+const HERO_SLIDE_DISPLAY = 3000;
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [layerAIndex, setLayerAIndex] = useState(0);
-  const [layerBIndex, setLayerBIndex] = useState(0);
+  const [layerBIndex, setLayerBIndex] = useState(() =>
+    HERO_IMAGES.length > 1 ? 1 : 0
+  );
   const [activeLayer, setActiveLayer] = useState<"a" | "b">("a");
   const intervalRef = useRef<number | null>(null);
   const activeIndexRef = useRef(0);
@@ -95,24 +96,11 @@ export default function HomePage() {
     if (!isSliderReady) return;
     if (intervalRef.current !== null) return;
 
-    intervalRef.current = window.setInterval(async () => {
+    intervalRef.current = window.setInterval(() => {
       if (!isMountedRef.current) return;
 
       const currentIndex = activeIndexRef.current;
       const nextIndex = (currentIndex + 1) % HERO_IMAGES.length;
-      const nextSrc = HERO_IMAGES[nextIndex].src;
-
-      if (!preloadCache.current.has(nextSrc)) {
-        await new Promise<void>((resolve) => {
-          const img = new window.Image();
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-          img.src = nextSrc;
-        });
-        preloadCache.current.add(nextSrc);
-      }
-
-      if (!isMountedRef.current) return;
 
       if (activeLayerRef.current === "a") {
         setLayerBIndex(nextIndex);
@@ -135,6 +123,24 @@ export default function HomePage() {
       }
     };
   }, [isSliderReady, reduceMotion]);
+
+  useEffect(() => {
+    if (!isSliderReady || typeof window === "undefined") return;
+
+    const nextIndex = (activeIndexRef.current + 1) % HERO_IMAGES.length;
+    const nextSrc = HERO_IMAGES[nextIndex].src;
+
+    if (preloadCache.current.has(nextSrc)) return;
+
+    const img = new window.Image();
+    img.onload = () => {
+      preloadCache.current.add(nextSrc);
+    };
+    img.onerror = () => {
+      preloadCache.current.add(nextSrc);
+    };
+    img.src = nextSrc;
+  }, [activeIndex, isSliderReady]);
 
   return (
     <>
@@ -242,6 +248,7 @@ export default function HomePage() {
         className="reveal bg-slate-50 py-10 sm:py-12"
         data-reveal
         data-reveal-id="offer"
+        id="offer"
       >
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-3xl border border-slate-200/70 bg-white/90 px-6 py-8 text-center shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur sm:px-10 sm:py-10">
@@ -637,7 +644,7 @@ export default function HomePage() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/<MY_NUMBER>"
+        href="sms:0447853002?body=Hej! Jag vill ha en gratis offert."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 left-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg transition hover:bg-emerald-600"
