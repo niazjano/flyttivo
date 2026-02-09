@@ -69,8 +69,8 @@ export default function RootLayout({
           </svg>
         </Link>
         <Link
-          href="/#offer"
-          className="floating-cta fixed bottom-4 right-4 z-50 inline-flex items-center justify-center rounded-full bg-[#1E5F99] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)] transition hover:scale-[1.03] hover:bg-[#174A77] hover:shadow-[0_12px_28px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:hidden"
+          href="https://tally.so/r/jaQ6L6"
+          className="floating-cta fixed bottom-4 right-4 z-50 inline-flex cursor-pointer items-center justify-center rounded-full bg-[#1E5F99] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)] transition hover:scale-[1.03] hover:bg-[#174A77] hover:shadow-[0_12px_28px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:hidden"
           aria-label="Få offert – gå till offertformuläret"
         >
           Få offert
