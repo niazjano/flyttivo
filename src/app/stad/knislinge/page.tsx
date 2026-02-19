@@ -82,7 +82,7 @@ export default function StadKnislingePage() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button variant="primary" href="https://tally.so/r/pbBdkB">
-              Få gratis offert
+              Begär offert
             </Button>
             <Link
               href="/kontakt"
