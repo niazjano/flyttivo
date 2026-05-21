@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/stadning", label: "Städning" },
   { href: "#", label: "Städer vi jobbar", isDropdown: true },
   { href: "/priser", label: "Priser" },
-  { href: "/om-oss", label: "Om företaget" },
+  { href: "/om-oss", label: "Om oss" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 

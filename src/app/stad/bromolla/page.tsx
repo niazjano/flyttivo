@@ -81,7 +81,7 @@ export default function StadBromollaPage() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button variant="primary" href="https://tally.so/r/pbBdkB">
-              Begär offert
+              Få gratis offert
             </Button>
             <Link
               href="/kontakt"

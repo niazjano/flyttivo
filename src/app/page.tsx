@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { COMPANY } from "@/lib/company";
 
 const HERO_IMAGES = [
   {
@@ -75,20 +76,6 @@ const FAQ_ITEMS = [
     answer:
       "Vi sköter hela processen. Du betalar bara halva arbetskostnaden direkt på fakturan.",
   },
-];
-
-const COMPANY_INFO = [
-  { label: "Företagsnamn", value: "Flyttivo" },
-  { label: "Organisationsnummer", value: "[Organisationsnummer]" },
-  { label: "Registrerad adress", value: "[Adress]" },
-  {
-    label: "Verksamhetsbeskrivning",
-    value:
-      "Flytt- och städtjänster för privatpersoner och företag. Tjänster anpassas efter uppdragets omfattning och avtal.",
-  },
-  { label: "Verksamhetsområde", value: "Kristianstad med omnejd" },
-  { label: "E-post", value: "info@flyttivo.se" },
-  { label: "Telefon", value: "044–785 3002" },
 ];
 
 export default function HomePage() {
@@ -229,19 +216,20 @@ export default function HomePage() {
 
           {/* Subheadline - Softer Text Color, max-w-xl */}
           <p className="hero-fade-up hero-fade-up-delay-1 mx-auto mb-10 max-w-xl text-sm leading-relaxed text-slate-100/90 sm:text-base md:text-lg">
-            Flytt- och städtjänster i Kristianstad, Åhus, Hässleholm, Östra Göinge
-            och norra & östra Skåne. RUT-avdrag tillämpas enligt gällande regler.
+            Smidigare flytt och renare hem i Kristianstad, Åhus, Hässleholm,
+            Östra Göinge och hela norra & östra Skåne – med 50% RUT-avdrag på
+            arbetskostnaden.
           </p>
 
           {/* Premium CTA Buttons */}
           <div className="hero-fade-up hero-fade-up-delay-2 mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* Primary CTA - Flyttivo Blue */}
             <Button variant="primary" href="https://tally.so/r/pbBdkB">
-              Begär offert
+              Få gratis offert
             </Button>
             {/* Secondary CTA - Transparent White Border */}
-            <Button variant="secondary" href="tel:0447853002">
-              Ring oss: 044–785 3002
+            <Button variant="secondary" href={`tel:${COMPANY.phoneTel}`}>
+              Ring oss: {COMPANY.phoneDisplay}
             </Button>
           </div>
 
@@ -253,7 +241,7 @@ export default function HomePage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="text-xs opacity-80">⚡</span>
-              <span>Tydlig offertprocess</span>
+              <span>Snabb offert inom 24h</span>
             </span>
             <span className="flex items-center gap-2">
               <span className="text-xs opacity-80">👷</span>
@@ -261,7 +249,7 @@ export default function HomePage() {
             </span>
             <span className="flex items-center gap-2">
               <span className="text-xs opacity-80">🧾</span>
-              <span>RUT-avdrag enligt regler</span>
+              <span>50% RUT-avdrag</span>
             </span>
           </div>
         </div>
@@ -278,15 +266,18 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-3xl border border-slate-200/70 bg-white/90 px-6 py-8 text-center shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur sm:px-10 sm:py-10">
             <div className="space-y-3">
               <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
-                Offertförfrågan
+                Trygg flytt & städ – med en extra kundförmån just nu
               </h2>
               <p className="text-sm text-slate-600 sm:text-base">
-                Lämna en förfrågan så återkommer vi med en tydlig offert baserad
-                på dina behov.
+                För att säkerställa hög kvalitet tar vi endast emot ett
+                begränsat antal uppdrag.
+              </p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
+                15% kundförmån på första bokningen
               </p>
             </div>
             <Button variant="primary" href="https://tally.so/r/pbBdkB">
-              Begär offert
+              Få gratis offert
             </Button>
           </div>
         </div>
@@ -301,8 +292,8 @@ export default function HomePage() {
               Våra tjänster
             </h2>
             <p className="max-w-2xl text-sm text-slate-600 sm:text-base">
-              Vi erbjuder flytt- och städtjänster inom samma företag för en
-              samlad och tydlig lösning.
+              Vi kombinerar flytt och städning i samma företag så att du kan få
+              en trygg helhetslösning – från första kartong till sista städrond.
             </p>
           </div>
 
@@ -427,6 +418,56 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section
+        className="reveal bg-white py-16 sm:py-20"
+        data-reveal
+        data-reveal-id="about"
+      >
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="mx-auto max-w-3xl space-y-4 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Om företaget
+            </h2>
+            <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+              {COMPANY.name} erbjuder professionella tjänster inom flytt och
+              städning i Kristianstad. Vi fokuserar på trygg service, tydlig
+              kommunikation och hög kvalitet i varje uppdrag.
+            </p>
+            <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+              Som registrerat svenskt aktiebolag arbetar vi strukturerat med
+              tydliga priser, professionell kundservice och ett upplägg som
+              gör det enkelt att planera flytt och städning.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section
+        className="reveal border-y border-slate-200/60 bg-slate-50/80 py-12 sm:py-14"
+        data-reveal
+        data-reveal-id="trust"
+      >
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "Registrerat svenskt aktiebolag",
+              "Professionell kundservice",
+              "Tydliga priser och offert",
+              "Fokus på trygg och smidig service",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-slate-200/60 bg-white/80 px-5 py-4 text-center shadow-[0_4px_16px_rgba(15,23,42,0.04)]"
+              >
+                <p className="text-sm font-medium text-slate-700">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="reveal bg-white py-16 sm:py-20" data-reveal data-reveal-id="faq">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
@@ -485,42 +526,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Company Information */}
-      <section className="reveal bg-slate-50 py-16 sm:py-20" data-reveal data-reveal-id="company-info">
-        <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <div className="mx-auto max-w-3xl space-y-3 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Företagsinformation
-            </h2>
-            <p className="text-sm text-slate-600 sm:text-base">
-              Formell information för transparens och regelefterlevnad.
-            </p>
-          </div>
-
-          <div className="mt-8 rounded-3xl border border-slate-200/70 bg-white p-6 shadow-[0_8px_24px_rgba(15,23,42,0.08)] sm:p-8">
-            <dl className="grid gap-4 text-sm text-slate-600 sm:grid-cols-2">
-              {COMPANY_INFO.map((item) => (
-                <div key={item.label} className="space-y-1">
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    {item.label}
-                  </dt>
-                  <dd className="text-sm text-slate-700">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
       <section className="reveal bg-slate-100/60 py-16 sm:py-20" data-reveal data-reveal-id="why-us">
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="mx-auto max-w-3xl space-y-3 text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Så arbetar vi
+              Varför ska du välja Flyttivo?
             </h2>
             <p className="text-sm text-slate-600 sm:text-base">
-              Arbetssätt och kvalitet i våra uppdrag.
+              Trygg, professionell och smidig flytt - anpassad efter dina behov.
             </p>
           </div>
 
@@ -540,7 +554,7 @@ export default function HomePage() {
               {[
                 {
                   title: "Erfarna specialister",
-                  body: "Våra team arbetar metodiskt och följer tydliga rutiner i varje uppdrag.",
+                  body: "Våra team arbetar metodiskt och effektivt för en trygg flytt från start till mål.",
                   icon: (
                     <svg
                       viewBox="0 0 24 24"
@@ -559,7 +573,7 @@ export default function HomePage() {
                 },
                 {
                   title: "Pålitlig service",
-                  body: "Vi planerar, kommunicerar och följer upp enligt överenskommelse.",
+                  body: "Vi håller tider, kommunicerar tydligt och levererar alltid det vi lovar.",
                   icon: (
                     <svg
                       viewBox="0 0 24 24"
@@ -579,7 +593,7 @@ export default function HomePage() {
                 },
                 {
                   title: "Tydliga priser",
-                  body: "Pris och villkor framgår i offerten. RUT-avdrag hanteras enligt regler.",
+                  body: "Inga dolda avgifter och fullt RUT-avdrag när det är möjligt.",
                   icon: (
                     <svg
                       viewBox="0 0 24 24"
@@ -598,7 +612,7 @@ export default function HomePage() {
                 },
                 {
                   title: "Anpassat efter dig",
-                  body: "Vi anpassar upplägg och omfattning efter behov och förutsättningar.",
+                  body: "Varje flytt är unik. Vi anpassar upplägget helt efter dina behov.",
                   icon: (
                     <svg
                       viewBox="0 0 24 24"
@@ -733,10 +747,66 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Contact Section */}
+        <section
+          className="reveal mb-20"
+          data-reveal
+          data-reveal-id="contact"
+        >
+          <div className="mx-auto max-w-4xl space-y-8 text-center">
+            <div className="space-y-3">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                Kontakta oss
+              </h2>
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+                Vi återkommer med en tydlig offert så snart som möjligt. Ring
+                eller maila oss om du vill diskutera ditt uppdrag direkt.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <a
+                href={`tel:${COMPANY.phoneTel}`}
+                className="rounded-2xl border border-slate-200/70 bg-white px-6 py-5 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition hover:border-[#1E5F99]/30 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  Telefon
+                </p>
+                <p className="mt-2 text-lg font-semibold text-slate-900">
+                  {COMPANY.phoneDisplay}
+                </p>
+              </a>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="rounded-2xl border border-slate-200/70 bg-white px-6 py-5 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition hover:border-[#1E5F99]/30 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  E-post
+                </p>
+                <p className="mt-2 text-lg font-semibold text-slate-900">
+                  {COMPANY.email}
+                </p>
+              </a>
+            </div>
+
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button variant="primary" href="https://tally.so/r/pbBdkB">
+                Få gratis offert
+              </Button>
+              <Button
+                variant="ghost"
+                href={`tel:${COMPANY.phoneTel}`}
+              >
+                Ring {COMPANY.phoneDisplay}
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* Tally Embed Section */}
         <section className="reveal py-20 bg-slate-50" data-reveal data-reveal-id="tally">
           <div className="mx-auto max-w-5xl px-4">
-            <div className="rounded-3xl border border-slate-200/60 bg-white p-4 shadow-md sm:p-6">
+            <div className="rounded-3xl border border-slate-200/60 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:p-6">
               <iframe
                 title="Tally offertformulär"
                 src="https://tally.so/r/jaQ6L6"
@@ -750,7 +820,7 @@ export default function HomePage() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="sms:0447853002?body=Hej! Jag vill begära en offert."
+        href={`sms:${COMPANY.phoneTel}?body=Hej! Jag vill ha en gratis offert.`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 left-4 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg transition hover:bg-emerald-600"

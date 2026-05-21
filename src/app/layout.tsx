@@ -4,11 +4,11 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { COMPANY, SITE_METADATA } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Flyttivo – Flyttfirma & Städning i Skåne",
-  description:
-    "Flyttivo är en lokal flyttfirma och städfirma i Skåne med fokus på trygghet, professionalism och personlig service.",
+  title: SITE_METADATA.title,
+  description: SITE_METADATA.description,
   icons: {
     icon: [
       { url: "/favicon-32x32.png?v=3", sizes: "32x32", type: "image/png" },
@@ -37,18 +37,18 @@ export default function RootLayout({
           <div className="sticky top-0 z-50 bg-[#1E5F99] text-white">
             <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-2 text-xs font-medium sm:flex-row sm:justify-between sm:gap-4 md:px-6">
               <a
-                href="tel:0447853002"
+                href={`tel:${COMPANY.phoneTel}`}
                 className="inline-flex items-center gap-2 hover:text-white/90"
               >
                 <span aria-hidden="true">📞</span>
-                <span>044–785 3002</span>
+                <span>{COMPANY.phoneDisplay}</span>
               </a>
               <a
-                href="mailto:info@flyttivo.se"
+                href={`mailto:${COMPANY.email}`}
                 className="inline-flex items-center gap-2 hover:text-white/90"
               >
                 <span aria-hidden="true">✉️</span>
-                <span>info@flyttivo.se</span>
+                <span>{COMPANY.email}</span>
               </a>
             </div>
           </div>
@@ -61,9 +61,9 @@ export default function RootLayout({
         <Link
           href="https://tally.so/r/pbBdkB"
           className="floating-cta fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-2 rounded-full bg-[#1E5F99] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)] transition hover:scale-[1.03] hover:bg-[#174A77] hover:shadow-[0_12px_28px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:inline-flex md:right-6"
-          aria-label="Begär offert – gå till offertformuläret"
+          aria-label="Få offert – gå till offertformuläret"
         >
-          <span>Begär offert</span>
+          <span>Få offert</span>
           <svg
             aria-hidden="true"
             viewBox="0 0 24 24"
@@ -81,13 +81,12 @@ export default function RootLayout({
         <Link
           href="https://tally.so/r/pbBdkB"
           className="floating-cta fixed bottom-4 right-4 z-50 inline-flex cursor-pointer items-center justify-center rounded-full bg-[#1E5F99] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.18)] transition hover:scale-[1.03] hover:bg-[#174A77] hover:shadow-[0_12px_28px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E5F99] sm:hidden"
-          aria-label="Begär offert – gå till offertformuläret"
+          aria-label="Få offert – gå till offertformuläret"
         >
-          Begär offert
+          Få offert
         </Link>
         <RevealOnScroll />
       </body>
     </html>
   );
 }
-
