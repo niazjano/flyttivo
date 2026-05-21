@@ -60,20 +60,30 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-8 z-40 border-b bg-white/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-4 py-4 md:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-3 md:px-6 md:py-3.5">
         <div className="flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-90">
+          <Link
+            href="/"
+            className="group flex min-w-0 shrink-0 items-center gap-2.5 transition-opacity duration-200 hover:opacity-[0.88] sm:gap-3"
+            aria-label="Flyttivo Flytt och Städ AB – startsida"
+          >
             <Image
               src="/logo/flyttivo-logo.png"
-              alt="Flyttivo - Flytt & städ i Skåne"
+              alt=""
               width={120}
               height={40}
-              className="h-8 w-auto md:h-10"
+              className="h-8 w-auto shrink-0 sm:h-9"
               loading="lazy"
               decoding="async"
+              aria-hidden="true"
             />
-            <span className="hidden text-sm text-slate-600 lg:inline">
-              Flytt & städ i Skåne
+            <span className="flex min-w-0 flex-col justify-center leading-tight">
+              <span className="text-[13px] font-semibold tracking-tight text-[#1C2B3A] sm:text-sm">
+                Flyttivo
+              </span>
+              <span className="text-[10px] font-normal tracking-[0.02em] text-slate-500 sm:text-[11px]">
+                Flytt och Städ AB
+              </span>
             </span>
           </Link>
 
