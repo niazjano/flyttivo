@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run copy-favicons",
+    "copy-favicons": "cp public/favicon.ico public/favicon.svg public/favicon-16x16.png public/favicon-32x32.png public/favicon-48x48.png public/apple-touch-icon.png public/site.webmanifest out/",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "favicons": ".venv/bin/python scripts/generate-favicons.py"
   },
   "dependencies": {
     "next": "16.0.7",

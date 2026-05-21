@@ -276,14 +276,48 @@ html {
   opacity: 0.88;
 }
 
-.trust-card {
-  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+.trust-section,
+.why-choose-section {
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #ffffff 45%,
+    #f9fafb 100%
+  );
+}
+
+.trust-panel {
+  transition: box-shadow 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 250ms ease;
+}
+
+.trust-item,
+.why-item {
+  transition: transform 250ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 250ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .trust-card:hover {
-    transform: translateY(-2px);
+  .trust-panel:hover {
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 12px 28px rgba(15, 23, 42, 0.06);
+  }
+
+  .why-item:hover {
+    transform: translateY(-1px);
+    border-color: rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .trust-item:nth-child(odd) {
+    padding-right: 0.5rem;
+  }
+
+  .trust-item:nth-child(even) {
+    padding-left: 0.5rem;
   }
 }
 

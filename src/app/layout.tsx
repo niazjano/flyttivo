@@ -5,6 +5,9 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { COMPANY, SITE_METADATA } from "@/lib/company";
+import { FAVICON_VERSION } from "@/lib/brand";
+
+const faviconQuery = `?v=${FAVICON_VERSION}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flyttivo.se"),
@@ -15,13 +18,15 @@ export const metadata: Metadata = {
   description: SITE_METADATA.description,
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32x32.png?v=4", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png?v=4", sizes: "16x16", type: "image/png" },
+      { url: `/favicon.svg${faviconQuery}`, type: "image/svg+xml" },
+      { url: `/favicon-48x48.png${faviconQuery}`, sizes: "48x48", type: "image/png" },
+      { url: `/favicon-32x32.png${faviconQuery}`, sizes: "32x32", type: "image/png" },
+      { url: `/favicon-16x16.png${faviconQuery}`, sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/favicon.ico?v=4",
-    apple: "/apple-touch-icon.png?v=4",
+    shortcut: `/favicon.ico${faviconQuery}`,
+    apple: `/apple-touch-icon.png${faviconQuery}`,
   },
+  manifest: `/site.webmanifest${faviconQuery}`,
 };
 
 export default function RootLayout({
@@ -32,11 +37,28 @@ export default function RootLayout({
   return (
     <html lang="sv">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico?v=4" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
+        <link rel="icon" href={`/favicon.svg${faviconQuery}`} type="image/svg+xml" />
+        <link rel="icon" href={`/favicon.ico${faviconQuery}`} sizes="any" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="48x48"
+          href={`/favicon-48x48.png${faviconQuery}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={`/favicon-32x32.png${faviconQuery}`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={`/favicon-16x16.png${faviconQuery}`}
+        />
+        <link rel="apple-touch-icon" href={`/apple-touch-icon.png${faviconQuery}`} />
+        <link rel="manifest" href={`/site.webmanifest${faviconQuery}`} />
       </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
         <div className="flex min-h-screen flex-col">

@@ -5,7 +5,7 @@ interface LogoSymbolProps {
   size?: number;
 }
 
-/** Minimal “F” mark for favicons and compact brand use only. */
+/** Compact “F” mark — matches site favicon. */
 export function LogoSymbol({
   className = "",
   size = 32,
@@ -20,20 +20,8 @@ export function LogoSymbol({
       className={className}
       aria-hidden="true"
     >
-      <rect width="32" height="32" rx="7" fill="#ffffff" />
-      <path
-        d="M10 9H20M10 9V23M10 16H17"
-        stroke={BRAND.navy}
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M20 9V13"
-        stroke={BRAND.accent}
-        strokeWidth="2.4"
-        strokeLinecap="round"
-      />
+      <rect width="32" height="32" rx="7" fill={BRAND.faviconBg} />
+      <path fill="#ffffff" d="M9 8h13v4H13v3.5h7v4.5H13v8H9V8z" />
     </svg>
   );
 }
