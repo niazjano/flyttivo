@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Flytthjälp & bärhjälp i Skåne | Flyttivo",
+  title: "Flytthjälp & bärhjälp i Kristianstad | Flyttivo",
   description:
-    "Professionell flytthjälp och bärhjälp i Skåne. Vi hjälper dig med tunglyft, lastning, lossning och flytt. Snabb, trygg och prisvärd service i hela Skåne.",
+    "Professionell flytthjälp och bärhjälp i Kristianstad. Vi hjälper dig med tunglyft, lastning, lossning och flytt. Snabb, trygg och prisvärd service i Kristianstad med omnejd.",
 };
 
 export default function FlytthjalpPage() {
@@ -12,17 +12,17 @@ export default function FlytthjalpPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Flytthjälp & bärhjälp i Skåne
+              Flytthjälp & bärhjälp i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Behöver du extra hjälp med flytten? Flyttivo erbjuder professionell
-              flytthjälp och bärhjälp i hela Skåne. Oavsett om du behöver hjälp
+              flytthjälp och bärhjälp i Kristianstad med omnejd. Oavsett om du behöver hjälp
               med tunglyft, lastning, lossning eller bara en extra hand under
               flytten, är vi här för att hjälpa dig. Vårt erfarna team kan
               komma och assistera dig med precis det du behöver, när du behöver
               det. Vi arbetar i Kristianstad, Åhus, Hässleholm, Östra Göinge,
               Broby, Hanaskog, Knislinge, Bromölla, Sibbhult, Osby, Glimåkra,
-              Sölvesborg och resten av Skåne. Flytthjälp är viktigt för att
+              Sölvesborg och närliggande orter. Flytthjälp är viktigt för att
               undvika skador och göra flytten säkrare och smidigare. Med
               Flyttivo får du professionell hjälp som gör hela processen
               enklare.
@@ -171,7 +171,7 @@ export default function FlytthjalpPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka flytthjälp i Skåne
+              Boka flytthjälp i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för att boka flytthjälp. Vi hjälper dig gärna

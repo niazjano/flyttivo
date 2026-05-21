@@ -1,5 +1,3 @@
-export { LogoSymbol } from "./LogoSymbol";
+export { LogoWordmark } from "./LogoWordmark";
 export { LogoFull } from "./LogoFull";
-
-
-
+export { LogoSymbol } from "./LogoSymbol";

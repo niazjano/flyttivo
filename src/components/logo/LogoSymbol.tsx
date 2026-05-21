@@ -1,59 +1,39 @@
-import React from "react";
+import { BRAND } from "@/lib/brand";
 
 interface LogoSymbolProps {
   className?: string;
-  color?: string;
   size?: number;
 }
 
+/** Minimal “F” mark for favicons and compact brand use only. */
 export function LogoSymbol({
   className = "",
-  color = "#1E5F99",
-  size = 40,
+  size = 32,
 }: LogoSymbolProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* Premium geometric F symbol with forward motion - Scandinavian minimalism */}
-      {/* Main F shape - clean lines, rounded corners */}
+      <rect width="32" height="32" rx="7" fill="#ffffff" />
       <path
-        d="M12 10V30M12 10H24M12 18H20M12 26H22"
-        stroke={color}
-        strokeWidth="2.8"
+        d="M10 9H20M10 9V23M10 16H17"
+        stroke={BRAND.navy}
+        strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Forward motion indicator - elegant arrow suggesting progress */}
       <path
-        d="M26 18L30 20L26 22"
-        stroke={color}
-        strokeWidth="2.8"
+        d="M20 9V13"
+        stroke={BRAND.accent}
+        strokeWidth="2.4"
         strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
       />
-      {/* Minimal geometric container - subtle frame for structure */}
-      <rect
-        x="10"
-        y="8"
-        width="22"
-        height="24"
-        rx="3.5"
-        stroke={color}
-        strokeWidth="1.2"
-        strokeOpacity="0.12"
-        fill="none"
-      />
-      {/* Premium accent - sophisticated detail */}
-      <circle cx="28" cy="12" r="1.8" fill={color} opacity="0.5" />
     </svg>
   );
 }
-

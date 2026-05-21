@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Packhjälp i Skåne – vi packar allt säkert åt dig | Flyttivo",
+  title: "Packhjälp i Kristianstad – vi packar allt säkert åt dig | Flyttivo",
   description:
-    "Professionell packhjälp i Skåne. Vi packar ditt bohag säkert och effektivt inför flytten. Erfaren personal, rätt material och trygg förpackning i hela Skåne.",
+    "Professionell packhjälp i Kristianstad. Vi packar ditt bohag säkert och effektivt inför flytten. Erfaren personal, rätt material och trygg förpackning i Kristianstad med omnejd.",
 };
 
 export default function PackhjalpPage() {
@@ -12,7 +12,7 @@ export default function PackhjalpPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Packhjälp i Skåne – vi packar allt säkert åt dig
+              Packhjälp i Kristianstad – vi packar allt säkert åt dig
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Packning är en av de mest tidskrävande delarna av en flytt, men
@@ -20,7 +20,7 @@ export default function PackhjalpPage() {
               erfarna team packar ditt bohag säkert och effektivt med rätt
               material och teknik. Vi vet exakt hur olika föremål ska packas
               för att skyddas under transporten, från känslig porslin till tunga
-              böcker och elektronik. Flyttivo erbjuder packhjälp i hela Skåne,
+              böcker och elektronik. Flyttivo erbjuder packhjälp i Kristianstad med omnejd,
               inklusive Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby,
               Hanaskog, Knislinge, Bromölla, Sibbhult, Osby, Glimåkra och
               Sölvesborg. Med professionell packhjälp sparar du tid, minskar
@@ -182,7 +182,7 @@ export default function PackhjalpPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka packhjälp i Skåne
+              Boka packhjälp i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på packhjälp.

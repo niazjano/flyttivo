@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tunglyft & pianoflytt i Skåne | Flyttivo",
+  title: "Tunglyft & pianoflytt i Kristianstad | Flyttivo",
   description:
-    "Professionell tunglyft och pianoflytt i Skåne. Vi flyttar pianon, kassaskåp, säkerhetsdörrar och andra tunga föremål säkert med rätt utrustning. Försäkrad transport.",
+    "Professionell tunglyft och pianoflytt i Kristianstad. Vi flyttar pianon, kassaskåp, säkerhetsdörrar och andra tunga föremål säkert med rätt utrustning. Försäkrad transport.",
 };
 
 export default function TunglyftPage() {
@@ -12,19 +12,19 @@ export default function TunglyftPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Tunglyft & pianoflytt i Skåne
+              Tunglyft & pianoflytt i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Vissa föremål är för tunga och känsliga för att flyttas utan
               professionell hjälp. Flyttivo specialiserar sig på tunglyft och
-              pianoflytt i hela Skåne. Vi har erfarenhet och rätt utrustning
+              pianoflytt i Kristianstad med omnejd. Vi har erfarenhet och rätt utrustning
               för att flytta pianon, kassaskåp, säkerhetsdörrar, tunga
               maskiner och andra tunga föremål säkert och försiktigt. Vårt team
               har kunskap om hur dessa föremål ska hanteras för att undvika
               skador på både föremålet och omgivningen. Vi arbetar i
               Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby, Hanaskog,
               Knislinge, Bromölla, Sibbhult, Osby, Glimåkra, Sölvesborg och
-              resten av Skåne. Tunglyft kräver rätt teknik, utrustning och
+              närliggande orter. Tunglyft kräver rätt teknik, utrustning och
               försäkring – allt som Flyttivo erbjuder för din trygghet.
             </p>
           </header>
@@ -151,7 +151,7 @@ export default function TunglyftPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka tunglyft i Skåne
+              Boka tunglyft i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på tunglyft

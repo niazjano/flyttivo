@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontorsstädning i Skåne för företag | Flyttivo",
+  title: "Kontorsstädning i Kristianstad för företag | Flyttivo",
   description:
-    "Professionell kontorsstädning i Skåne för företag. Vi städar kontor, butiker och kommersiella lokaler. Viktigt för hygien, hälsa och professionell miljö. Flexibla tider.",
+    "Professionell kontorsstädning i Kristianstad för företag. Vi städar kontor, butiker och kommersiella lokaler. Viktigt för hygien, hälsa och professionell miljö. Flexibla tider.",
 };
 
 export default function KontorsstadningPage() {
@@ -12,17 +12,17 @@ export default function KontorsstadningPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Kontorsstädning i Skåne för företag
+              Kontorsstädning i Kristianstad för företag
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               En ren och välstädad kontorsmiljö är viktig för både hälsa,
               produktivitet och professionell image. Flyttivo erbjuder professionell
-              kontorsstädning i hela Skåne för företag, organisationer och
+              kontorsstädning i Kristianstad med omnejd för företag, organisationer och
               kommersiella lokaler. Vårt erfarna team städar kontor, butiker,
               väntrum, konferensrum och övriga arbetsutrymmen med rätt produkter
               och teknik. Vi arbetar i Kristianstad, Åhus, Hässleholm, Östra
               Göinge, Broby, Hanaskog, Knislinge, Bromölla, Sibbhult, Osby,
-              Glimåkra, Sölvesborg och resten av Skåne. Kontorsstädning är
+              Glimåkra, Sölvesborg och närliggande orter. Kontorsstädning är
               viktigt för att hålla en hygienisk miljö, minska sjukfrånvaro och
               skapa en professionell miljö för både anställda och besökare. Med
               Flyttivo får du regelbunden kontorsstädning som anpassas efter
@@ -171,7 +171,7 @@ export default function KontorsstadningPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka kontorsstädning i Skåne
+              Boka kontorsstädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

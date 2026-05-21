@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hemstädning i Skåne – anpassad efter ditt hem | Flyttivo",
+  title: "Hemstädning i Kristianstad – anpassad efter ditt hem | Flyttivo",
   description:
-    "Professionell hemstädning i Skåne. Återkommande städning anpassad efter ditt hem – veckovis, varannan vecka eller månadsvis. RUT-avdrag tillgängligt.",
+    "Professionell hemstädning i Kristianstad. Återkommande städning anpassad efter ditt hem – veckovis, varannan vecka eller månadsvis. RUT-avdrag tillgängligt.",
 };
 
 export default function HemstadningPage() {
@@ -12,10 +12,10 @@ export default function HemstadningPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Hemstädning i Skåne – anpassad efter ditt hem
+              Hemstädning i Kristianstad – anpassad efter ditt hem
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
-              Flyttivo erbjuder professionell hemstädning i hela Skåne som är
+              Flyttivo erbjuder professionell hemstädning i Kristianstad med omnejd som är
               anpassad efter ditt hem och dina behov. Oavsett om du behöver
               städning varje vecka, varannan vecka eller en gång i månaden, kan
               vi skräddarsy en lösning som passar dig. Vårt erfarna team kommer
@@ -23,7 +23,7 @@ export default function HemstadningPage() {
               så att du kan fokusera på det som är viktigt för dig. Vi arbetar
               i Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby, Hanaskog,
               Knislinge, Bromölla, Sibbhult, Osby, Glimåkra, Sölvesborg och
-              resten av Skåne. Hemstädning är viktigt för att hålla hemmet rent
+              närliggande orter. Hemstädning är viktigt för att hålla hemmet rent
               och fräscht, vilket bidrar till en bättre hälsa och välmående.
               Som privatperson kan du dra nytta av RUT-avdrag på upp till 50 %
               av arbetskostnaden för städning, vilket gör hemstädning ännu mer
@@ -175,7 +175,7 @@ export default function HemstadningPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka hemstädning i Skåne
+              Boka hemstädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

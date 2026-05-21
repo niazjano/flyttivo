@@ -1,6 +1,6 @@
-# Flyttivo – Flytt & Städning i Skåne
+# Flyttivo – Flytt & Städning i Kristianstad
 
-Modern, premium website for Flyttivo - a moving and cleaning company in Skåne, Sweden.
+Modern, premium website for Flyttivo Flytt och Städ AB – a moving and cleaning company in Kristianstad, Sweden.
 
 ## 🚀 Deployment to GitHub Pages
 

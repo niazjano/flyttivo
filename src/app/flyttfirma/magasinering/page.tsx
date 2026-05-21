@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Magasinering & transport till förråd i Skåne | Flyttivo",
+  title: "Magasinering & transport till förråd i Kristianstad | Flyttivo",
   description:
-    "Magasinering och transport till förråd i Skåne. Vi hjälper dig att förvara möbler, kartonger och andra föremål säkert. Flexibla lösningar för kort eller lång förvaring.",
+    "Magasinering och transport till förråd i Kristianstad. Vi hjälper dig att förvara möbler, kartonger och andra föremål säkert. Flexibla lösningar för kort eller lång förvaring.",
 };
 
 export default function MagasineringPage() {
@@ -12,19 +12,19 @@ export default function MagasineringPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Magasinering & transport till förråd i Skåne
+              Magasinering & transport till förråd i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Behöver du förvara möbler, kartonger eller andra föremål under en
               period? Flyttivo hjälper dig med magasinering och transport till
-              förråd i hela Skåne. Oavsett om du behöver förvara saker under en
+              förråd i Kristianstad med omnejd. Oavsett om du behöver förvara saker under en
               renovering, mellanflytt eller längre period, kan vi hjälpa dig
               att transportera och förvara dina ägodelar säkert. Vi arbetar med
-              pålitliga förrådsanläggningar i Skåne och kan hjälpa dig hitta
+              pålitliga förrådsanläggningar i Kristianstad och kan hjälpa dig hitta
               rätt lösning för dina behov. Flyttivo erbjuder magasinering i
               Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby, Hanaskog,
               Knislinge, Bromölla, Sibbhult, Osby, Glimåkra, Sölvesborg och
-              resten av Skåne. Med professionell magasinering får du trygghet
+              närliggande orter. Med professionell magasinering får du trygghet
               att dina ägodelar är säkert förvarade medan du behöver det.
             </p>
           </header>
@@ -182,7 +182,7 @@ export default function MagasineringPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka magasinering i Skåne
+              Boka magasinering i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för mer information om magasinering och transport

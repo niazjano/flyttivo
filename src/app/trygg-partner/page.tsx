@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Trygg partner för flytt & städ i Skåne | Flyttivo",
+  title: "Trygg partner för flytt & städ i Kristianstad | Flyttivo",
   description:
-    "Flyttivo är din trygga partner för flytt och städ i Skåne. Punktlighet, tydlig kommunikation och professionell service.",
+    "Flyttivo är din trygga partner för flytt och städ i Kristianstad. Punktlighet, tydlig kommunikation och professionell service.",
 };
 
 export default function TryggPartnerPage() {
@@ -14,12 +14,12 @@ export default function TryggPartnerPage() {
       <div className="space-y-10">
         <header className="reveal space-y-4" data-reveal data-reveal-id="trygg-hero">
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Trygg partner för flytt & städ i Skåne
+            Trygg partner för flytt & städ i Kristianstad
           </h1>
           <div className="space-y-3 text-base leading-relaxed text-slate-600">
             <p>
               Flyttivo är din trygga och pålitliga partner för flytt och städning
-              i Skåne. Vi är en lokal flyttfirma och städfirma som sätter din
+              i Kristianstad. Vi är en lokal flyttfirma och städfirma som sätter din
               trygghet och tillfredsställelse i centrum. Oavsett om du behöver
               flytthjälp, flyttstädning eller återkommande hemstädning, så kan du
               lita på att vi levererar professionell service med tydlig
@@ -220,10 +220,10 @@ export default function TryggPartnerPage() {
 
         <section className="reveal space-y-4" data-reveal data-reveal-id="trygg-local">
           <h2 className="text-2xl font-semibold text-slate-900">
-            Lokal närvaro i Skåne
+            Lokal närvaro i Kristianstad
           </h2>
           <p className="text-base leading-relaxed text-slate-600">
-            Flyttivo är din trygga partner för flytt och städning i Skåne. Vi är
+            Flyttivo är din trygga partner för flytt och städning i Kristianstad. Vi är
             extra aktiva i Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby,
             Hanaskog, Knislinge, Bromölla och närliggande områden. Med lokal
             närvaro kan vi ge dig snabb service och god kännedom om området.
@@ -265,7 +265,7 @@ export default function TryggPartnerPage() {
           </h2>
           <p className="mb-6 text-base text-slate-600">
             Kontakta oss för en kostnadsfri offert på flytt eller städning i
-            Skåne. Vi återkommer oftast samma dag med ett tydligt prisförslag och
+            Kristianstad. Vi återkommer oftast samma dag med ett tydligt prisförslag och
             svarar på dina frågor.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">

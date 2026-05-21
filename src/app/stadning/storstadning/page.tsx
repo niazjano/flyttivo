@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Storstädning i Skåne – djupgående rengöring | Flyttivo",
+  title: "Storstädning i Kristianstad – djupgående rengöring | Flyttivo",
   description:
-    "Professionell storstädning i Skåne. Djupgående rengöring av alla rum med fokus på detaljer. Perfekt inför högtider, efter renovering eller för en fräsch start. RUT-avdrag tillgängligt.",
+    "Professionell storstädning i Kristianstad. Djupgående rengöring av alla rum med fokus på detaljer. Perfekt inför högtider, efter renovering eller för en fräsch start. RUT-avdrag tillgängligt.",
 };
 
 export default function StorstadningPage() {
@@ -12,18 +12,18 @@ export default function StorstadningPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Storstädning i Skåne – djupgående rengöring
+              Storstädning i Kristianstad – djupgående rengöring
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Storstädning är en grundlig och djupgående rengöring av hela hemmet
               som går längre än vanlig hemstädning. Flyttivo erbjuder professionell
-              storstädning i hela Skåne där vi städar alla rum i detalj, från
+              storstädning i Kristianstad med omnejd där vi städar alla rum i detalj, från
               kök och badrum till vardagsrum, sovrum och övriga utrymmen.
               Storstädning är perfekt inför högtider, efter renovering, när du
               flyttar in i ny bostad eller när du bara vill ha en fräsch start.
               Vi arbetar i Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby,
               Hanaskog, Knislinge, Bromölla, Sibbhult, Osby, Glimåkra, Sölvesborg
-              och resten av Skåne. Med Flyttivos storstädning får du ett helt
+              och närliggande orter. Med Flyttivos storstädning får du ett helt
               rent hem där alla ytor, hörn och detaljer är noggrant rengjorda.
               Som privatperson kan du dra nytta av RUT-avdrag på upp till 50 %
               av arbetskostnaden för städning.
@@ -188,7 +188,7 @@ export default function StorstadningPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka storstädning i Skåne
+              Boka storstädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

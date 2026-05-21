@@ -1,14 +1,23 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Flyttfirma i Kristianstad",
+  description:
+    "Professionell flyttfirma i Kristianstad. Bohagsflytt, företagsflytt och flytthjälp med tydlig offert och trygg service.",
+};
+
 export default function FlyttPage() {
   return (
     <div className="space-y-8">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
-          Flyttfirma i Skåne
+          Flyttfirma i Kristianstad
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
-          Flyttivo hjälper dig med trygg och effektiv flytthjälp inom Skåne.
-          Vi tar hand om bärande, lastning, transport och lossning – så att du
-          kan fokusera på ditt nya hem eller din nya lokal.
+          Flyttivo hjälper dig med trygg och effektiv flytthjälp i Kristianstad
+          och omnejd. Vi tar hand om bärande, lastning, transport och lossning –
+          så att du kan fokusera på ditt nya hem eller din nya lokal.
         </p>
       </header>
 
@@ -61,12 +70,12 @@ export default function FlyttPage() {
             Som privatperson kan du använda RUT-avdrag på delar av arbetskostnaden
             vid flyttjänster. Vi sköter avdraget direkt på fakturan.
           </p>
-          <a
-            href="/kontakt"
+          <Link
+            href="https://tally.so/r/pbBdkB"
             className="mt-4 inline-flex items-center justify-center rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
           >
-            Be om offert
-          </a>
+            Få gratis offert
+          </Link>
         </aside>
       </section>
     </div>

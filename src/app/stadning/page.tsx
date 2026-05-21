@@ -1,14 +1,23 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Städfirma i Kristianstad",
+  description:
+    "Professionell städning i Kristianstad. Flyttstädning, hemstädning och kontorsstädning med tydlig offert och RUT-avdrag.",
+};
+
 export default function StadningPage() {
   return (
     <div className="space-y-8">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
-          Städning i Skåne
+          Städning i Kristianstad
         </h1>
         <p className="max-w-2xl text-sm text-slate-600">
           Flyttivo erbjuder noggrann hemstädning, flyttstädning och
-          företagsstädning i Skåne. Vi jobbar strukturerat med checklistor och
-          kvalitetskontroller för att säkerställa ett skinande resultat.
+          företagsstädning i Kristianstad och omnejd. Vi jobbar strukturerat med
+          checklistor och kvalitetskontroller för ett professionellt resultat.
         </p>
       </header>
 
@@ -61,12 +70,12 @@ export default function StadningPage() {
             Som privatperson kan du använda RUT-avdrag på upp till 50 % av
             arbetskostnaden för städning. Vi hanterar avdraget åt dig.
           </p>
-          <a
-            href="/kontakt"
+          <Link
+            href="https://tally.so/r/pbBdkB"
             className="mt-4 inline-flex items-center justify-center rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
           >
-            Boka städning
-          </a>
+            Begär offert
+          </Link>
         </aside>
       </section>
     </div>

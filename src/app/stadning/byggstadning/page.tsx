@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Byggstädning & renoveringsstädning i Skåne | Flyttivo",
+  title: "Byggstädning & renoveringsstädning i Kristianstad | Flyttivo",
   description:
-    "Professionell byggstädning och renoveringsstädning i Skåne. Vi tar bort damm, byggrester, smuts och skräp efter renovering eller byggnation. Grundlig rengöring.",
+    "Professionell byggstädning och renoveringsstädning i Kristianstad. Vi tar bort damm, byggrester, smuts och skräp efter renovering eller byggnation. Grundlig rengöring.",
 };
 
 export default function ByggstadningPage() {
@@ -12,18 +12,18 @@ export default function ByggstadningPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Byggstädning & renoveringsstädning i Skåne
+              Byggstädning & renoveringsstädning i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Efter renovering eller byggnation behövs ofta grundlig byggstädning
               för att ta bort damm, byggrester, smuts och skräp. Flyttivo erbjuder
-              professionell byggstädning och renoveringsstädning i hela Skåne där
+              professionell byggstädning och renoveringsstädning i Kristianstad med omnejd där
               vi gör en grundlig rengöring av alla utrymmen som påverkats av
               renoveringen. Vårt erfarna team har rätt utrustning och produkter
               för att hantera byggdamm, färgfläckar, kalkrester och annan smuts
               som uppstår vid renovering. Vi arbetar i Kristianstad, Åhus,
               Hässleholm, Östra Göinge, Broby, Hanaskog, Knislinge, Bromölla,
-              Sibbhult, Osby, Glimåkra, Sölvesborg och resten av Skåne.
+              Sibbhult, Osby, Glimåkra, Sölvesborg och närliggande orter.
               Byggstädning är viktigt för att bostaden eller lokalen ska vara
               redo att användas igen efter renoveringen. Med Flyttivos
               byggstädning får du ett helt rent utrymme där allt damm, smuts och
@@ -182,7 +182,7 @@ export default function ByggstadningPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka byggstädning i Skåne
+              Boka byggstädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

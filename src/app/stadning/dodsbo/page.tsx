@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dödsbostädning & tömning av dödsbo i Skåne | Flyttivo",
+  title: "Dödsbostädning & tömning av dödsbo i Kristianstad | Flyttivo",
   description:
-    "Professionell och känslig dödsbostädning i Skåne. Vi hjälper med städning och tömning av dödsbo med respekt och omsorg. Diskret och professionell service.",
+    "Professionell och känslig dödsbostädning i Kristianstad. Vi hjälper med städning och tömning av dödsbo med respekt och omsorg. Diskret och professionell service.",
 };
 
 export default function DodsboPage() {
@@ -12,17 +12,17 @@ export default function DodsboPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Dödsbostädning & tömning av dödsbo i Skåne
+              Dödsbostädning & tömning av dödsbo i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Att hantera ett dödsbo är en känslig och emotionellt påfrestande
               situation. Flyttivo erbjuder professionell och känslig
-              dödsbostädning i hela Skåne där vi hjälper dig med städning och
+              dödsbostädning i Kristianstad med omnejd där vi hjälper dig med städning och
               tömning av dödsbo med respekt, omsorg och diskretion. Vårt erfarna
               team förstår att detta är en svår tid och arbetar med största
               omsorg och respekt. Vi arbetar i Kristianstad, Åhus, Hässleholm,
               Östra Göinge, Broby, Hanaskog, Knislinge, Bromölla, Sibbhult,
-              Osby, Glimåkra, Sölvesborg och resten av Skåne. Dödsbostädning
+              Osby, Glimåkra, Sölvesborg och närliggande orter. Dödsbostädning
               innebär grundlig städning av bostaden samt hjälp med tömning och
               bortforsling av möbler och föremål. Vi kan också hjälpa med
               sortering och organisation av ägodelar. Med Flyttivo får du
@@ -127,7 +127,7 @@ export default function DodsboPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Kontakta oss för dödsbostädning i Skåne
+              Kontakta oss för dödsbostädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss för ett diskret samtal om dödsbostädning. Vi hjälper

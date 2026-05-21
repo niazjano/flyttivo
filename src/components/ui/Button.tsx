@@ -22,11 +22,11 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#1E5F99] text-white shadow-[0_8px_30px_rgba(30,95,153,0.22)] hover:bg-[#174A77] hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(30,95,153,0.28)]",
+      "bg-[#163A5F] text-white shadow-[0_8px_30px_rgba(22,58,95,0.2)] hover:bg-[#0F2D4A] hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(22,58,95,0.26)]",
     secondary:
       "border border-white/80 bg-transparent text-white hover:bg-white/10 hover:shadow-[0_10px_24px_rgba(15,23,42,0.18)] hover:scale-[1.02]",
     ghost:
-      "border border-slate-300 bg-white text-slate-700 hover:border-[#1E5F99] hover:text-[#1E5F99] hover:shadow-[0_10px_24px_rgba(15,23,42,0.12)] hover:scale-[1.02]",
+      "border border-slate-300 bg-white text-slate-700 hover:border-[#163A5F] hover:text-[#163A5F] hover:shadow-[0_10px_24px_rgba(15,23,42,0.12)] hover:scale-[1.02]",
   };
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`.trim();

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Företagsflytt & kontorsflytt i Skåne | Flyttivo",
+  title: "Företagsflytt & kontorsflytt i Kristianstad | Flyttivo",
   description:
-    "Professionell företagsflytt och kontorsflytt i Skåne. Minimal driftstopp, planerad flytt och säker hantering av kontorsinventarier. Flyttivo hjälper ditt företag.",
+    "Professionell företagsflytt och kontorsflytt i Kristianstad. Minimal driftstopp, planerad flytt och säker hantering av kontorsinventarier. Flyttivo hjälper ditt företag.",
 };
 
 export default function ForetagsflyttPage() {
@@ -12,16 +12,16 @@ export default function ForetagsflyttPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Företagsflytt & kontorsflytt i Skåne
+              Företagsflytt & kontorsflytt i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
-              Flyttivo hjälper företag och organisationer i Skåne med
+              Flyttivo hjälper företag och organisationer i Kristianstad med
               professionell företagsflytt och kontorsflytt. Vi förstår att en
               företagsflytt kräver noggrann planering för att minimera
               driftstopp och säkerställa att verksamheten kan fortsätta så
               smidigt som möjligt. Vårt team har lång erfarenhet av att flytta
               kontor, butiker, verkstäder och andra kommersiella lokaler. Vi
-              arbetar i hela Skåne, inklusive Kristianstad, Åhus, Hässleholm,
+              arbetar i Kristianstad med omnejd, inklusive Kristianstad, Åhus, Hässleholm,
               Östra Göinge, Broby, Hanaskog, Knislinge, Bromölla, Sibbhult,
               Osby, Glimåkra och Sölvesborg. Med Flyttivo får du en snabb,
               effektiv och planerad flytt som passar ditt företags behov och
@@ -128,7 +128,7 @@ export default function ForetagsflyttPage() {
                 <span className="mr-2 text-sky-600">✓</span>
                 <span>
                   <strong className="text-slate-900">Erfarenhet:</strong> Vi
-                  har flyttat många företag i Skåne och förstår vad som krävs
+                  har flyttat många företag i Kristianstad och förstår vad som krävs
                   för en smidig flytt.
                 </span>
               </li>
@@ -159,7 +159,7 @@ export default function ForetagsflyttPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka företagsflytt i Skåne
+              Boka företagsflytt i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss för ett kostnadsfritt prisförslag på din

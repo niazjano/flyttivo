@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Bohagsflytt i Skåne – trygg & prisvärd flytthjälp | Flyttivo",
+  title: "Bohagsflytt i Kristianstad – trygg & prisvärd flytthjälp | Flyttivo",
   description:
-    "Professionell bohagsflytt i Skåne med Flyttivo. Trygg flytthjälp för lägenheter och villor i Kristianstad, Åhus, Hässleholm och hela Skåne. RUT-avdrag tillgängligt.",
+    "Professionell bohagsflytt i Kristianstad med Flyttivo. Trygg flytthjälp för lägenheter och villor i Kristianstad, Åhus, Hässleholm och Kristianstad med omnejd. RUT-avdrag tillgängligt.",
 };
 
 export default function BohagsflyttPage() {
@@ -12,15 +12,15 @@ export default function BohagsflyttPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Bohagsflytt i Skåne – trygg & prisvärd flytthjälp
+              Bohagsflytt i Kristianstad – trygg & prisvärd flytthjälp
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
-              Flyttivo är din lokala flyttfirma i Skåne som hjälper dig med
+              Flyttivo är din lokala flyttfirma i Kristianstad som hjälper dig med
               trygg och effektiv bohagsflytt. Oavsett om du flyttar från en
               lägenhet eller villa, tar vi hand om allt från packning och
               lastning till transport och lossning. Vår erfarenhet och
               professionalism säkerställer att dina ägodelar hanteras med omsorg
-              och att flytten går smidigt. Vi arbetar i hela Skåne, inklusive
+              och att flytten går smidigt. Vi arbetar i Kristianstad med omnejd, inklusive
               Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby, Hanaskog,
               Knislinge, Bromölla, Sibbhult, Osby, Glimåkra och Sölvesborg. Som
               privatperson kan du dra nytta av RUT-avdrag på delar av
@@ -137,7 +137,7 @@ export default function BohagsflyttPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka bohagsflytt i Skåne
+              Boka bohagsflytt i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på din

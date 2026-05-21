@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { COMPANY } from "@/lib/company";
+
+export const metadata: Metadata = {
+  title: "Kontakt",
+  description:
+    "Kontakta Flyttivo Flytt och Städ AB i Kristianstad. Ring 044-785 30 02 eller begär gratis offert på flytt och städ.",
+};
 
 export default function KontaktPage() {
   return (
@@ -9,9 +16,9 @@ export default function KontaktPage() {
           Kontakta oss
         </h1>
         <p className="text-base leading-relaxed text-slate-600">
-          Kontakta {COMPANY.name} för en kostnadsfri offert på flytt eller
-          städning. Vi återkommer så snart som möjligt, vanligtvis inom 24
-          timmar på vardagar.
+          Kontakta {COMPANY.name} i {COMPANY.city} för offert på flytt eller
+          städning. Vi återkommer så snart som möjligt, vanligtvis samma dag på
+          vardagar.
         </p>
       </header>
 

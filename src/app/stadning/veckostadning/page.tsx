@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Veckostädning i Skåne | Flyttivo",
+  title: "Veckostädning i Kristianstad | Flyttivo",
   description:
-    "Professionell veckostädning i Skåne. Vi kommer varje vecka och håller ditt hem rent och fräscht. Perfekt för familjer med barn. RUT-avdrag tillgängligt.",
+    "Professionell veckostädning i Kristianstad. Vi kommer varje vecka och håller ditt hem rent och fräscht. Perfekt för familjer med barn. RUT-avdrag tillgängligt.",
 };
 
 export default function VeckostadningPage() {
@@ -12,18 +12,18 @@ export default function VeckostadningPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Veckostädning i Skåne
+              Veckostädning i Kristianstad
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Veckostädning är perfekt för hem med högt städbehov, som familjer
               med barn eller hem där det är viktigt att hålla allt rent och
               fräscht. Flyttivo erbjuder professionell veckostädning i hela
-              Skåne där vi kommer varje vecka och gör en grundlig städning av
+              Kristianstad med omnejd där vi kommer varje vecka och gör en grundlig städning av
               ditt hem. Vårt erfarna team städar systematiskt med rätt produkter
               och teknik, så att ditt hem alltid håller hög standard. Vi arbetar
               i Kristianstad, Åhus, Hässleholm, Östra Göinge, Broby, Hanaskog,
               Knislinge, Bromölla, Sibbhult, Osby, Glimåkra, Sölvesborg och
-              resten av Skåne. Med veckostädning får du regelbunden städning som
+              närliggande orter. Med veckostädning får du regelbunden städning som
               håller hemmet rent och fräscht, vilket bidrar till en bättre
               hälsa och välmående för hela familjen. Som privatperson kan du dra
               nytta av RUT-avdrag på upp till 50 % av arbetskostnaden för
@@ -157,7 +157,7 @@ export default function VeckostadningPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka veckostädning i Skåne
+              Boka veckostädning i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

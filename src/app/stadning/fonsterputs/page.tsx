@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fönsterputs i Skåne – klara & rena fönster | Flyttivo",
+  title: "Fönsterputs i Kristianstad – klara & rena fönster | Flyttivo",
   description:
-    "Professionell fönsterputs i Skåne. Vi putsar fönster, fönsterkarmar, fönsterbräden och glasdörrar. Inkluderar både insida och utsida. RUT-avdrag tillgängligt.",
+    "Professionell fönsterputs i Kristianstad. Vi putsar fönster, fönsterkarmar, fönsterbräden och glasdörrar. Inkluderar både insida och utsida. RUT-avdrag tillgängligt.",
 };
 
 export default function FonsterputsPage() {
@@ -12,17 +12,17 @@ export default function FonsterputsPage() {
         <div className="space-y-8">
           <header className="space-y-4">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
-              Fönsterputs i Skåne – klara & rena fönster
+              Fönsterputs i Kristianstad – klara & rena fönster
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Klara och rena fönster gör stor skillnad för både ljusinsläpp och
               utseende. Flyttivo erbjuder professionell fönsterputs i hela
-              Skåne där vi putsar fönster, fönsterkarmar, fönsterbräden och
+              Kristianstad med omnejd där vi putsar fönster, fönsterkarmar, fönsterbräden och
               glasdörrar både inuti och utvändigt. Vårt erfarna team har rätt
               utrustning och teknik för att få fönstren skinande rena utan
               fläckar eller strimmor. Vi arbetar i Kristianstad, Åhus,
               Hässleholm, Östra Göinge, Broby, Hanaskog, Knislinge, Bromölla,
-              Sibbhult, Osby, Glimåkra, Sölvesborg och resten av Skåne.
+              Sibbhult, Osby, Glimåkra, Sölvesborg och närliggande orter.
               Fönsterputs är viktigt för att maximera ljusinsläppet, förbättra
               utsikten och ge hemmet ett fräscht och välstädat intryck. Som
               privatperson kan du dra nytta av RUT-avdrag på upp till 50 % av
@@ -151,7 +151,7 @@ export default function FonsterputsPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka fönsterputs i Skåne
+              Boka fönsterputs i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på

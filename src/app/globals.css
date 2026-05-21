@@ -5,9 +5,10 @@
   --foreground: #0f172a;
   
   /* Flyttivo Design System Colors */
-  --color-primary: #1E5F99;
-  --color-primary-dark: #174A77;
-  --color-primary-light: #E6F0FB;
+  --color-primary: #163A5F;
+  --color-primary-dark: #0F2D4A;
+  --color-primary-light: #E8EEF4;
+  --color-accent: #3F7DFF;
   
   --color-neutral-900: #0F172A;
   --color-neutral-700: #334155;
@@ -27,6 +28,7 @@
   --color-flyttivo-primary: var(--color-primary);
   --color-flyttivo-primary-dark: var(--color-primary-dark);
   --color-flyttivo-primary-light: var(--color-primary-light);
+  --color-flyttivo-accent: var(--color-accent);
   
   --color-flyttivo-neutral-900: var(--color-neutral-900);
   --color-flyttivo-neutral-700: var(--color-neutral-700);
@@ -258,6 +260,31 @@ html {
 .faq-panel-open {
   max-height: 220px;
   opacity: 1;
+}
+
+.logo-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.logo-wordmark {
+  transition: opacity 200ms ease;
+}
+
+.logo-link:hover .logo-wordmark {
+  opacity: 0.88;
+}
+
+.trust-card {
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trust-card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

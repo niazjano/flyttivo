@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Montering & demontering vid flytt i Skåne | Flyttivo",
+  title: "Montering & demontering vid flytt i Kristianstad | Flyttivo",
   description:
-    "Professionell montering och demontering av möbler vid flytt i Skåne. Vi monterar och demonterar IKEA-möbler, sängar, bokhyllor och mer. Snabb och säker service.",
+    "Professionell montering och demontering av möbler vid flytt i Kristianstad. Vi monterar och demonterar IKEA-möbler, sängar, bokhyllor och mer. Snabb och säker service.",
 };
 
 export default function MonteringPage() {
@@ -17,13 +17,13 @@ export default function MonteringPage() {
             <p className="max-w-3xl text-base leading-relaxed text-slate-600">
               Många möbler behöver demonteras innan flytten och monteras igen
               på den nya adressen. Flyttivo hjälper dig med professionell
-              montering och demontering av möbler vid flytt i hela Skåne. Vi har
+              montering och demontering av möbler vid flytt i Kristianstad med omnejd. Vi har
               erfarenhet av alla typer av möbler – från IKEA-möbler och
               bokhyllor till sängar, skrivbord och köksmöbler. Vårt team har
               rätt verktyg och kunskap för att hantera både enkel och mer
               komplex montering. Vi arbetar i Kristianstad, Åhus, Hässleholm,
               Östra Göinge, Broby, Hanaskog, Knislinge, Bromölla, Sibbhult,
-              Osby, Glimåkra, Sölvesborg och resten av Skåne. Montering och
+              Osby, Glimåkra, Sölvesborg och närliggande orter. Montering och
               demontering är viktigt för att möbler ska kunna flyttas säkert och
               för att de ska passa genom dörrar och trappor. Med Flyttivo får
               du professionell hjälp som gör hela processen enklare.
@@ -162,7 +162,7 @@ export default function MonteringPage() {
 
           <section className="rounded-2xl border-2 border-sky-600 bg-sky-50 p-8 text-center shadow-sm">
             <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-              Boka montering & demontering i Skåne
+              Boka montering & demontering i Kristianstad
             </h2>
             <p className="mb-6 text-slate-600">
               Kontakta oss idag för ett kostnadsfritt prisförslag på montering
